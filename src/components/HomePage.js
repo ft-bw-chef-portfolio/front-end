@@ -10,6 +10,8 @@ const HomePage = ({ fetchRecipes, recipes, error, isFetching }) => {
     fetchRecipes();
   }, [fetchRecipes]);
 
+  console.log(recipes);
+
   if (isFetching) {
     return <h2>Loading Recipes...</h2>;
   }

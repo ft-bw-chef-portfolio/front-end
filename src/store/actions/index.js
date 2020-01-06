@@ -12,5 +12,6 @@ export const fetchRecipes = () => dispatch => {
   axios
     .get("https://bw4-chef-test.herokuapp.com/recipes")
     .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
+    .then(res => console.log(res.data))
     .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
 };

@@ -3,9 +3,19 @@ import React from 'react';
 function Login (){
     console.log();
     return(
-        <div>
-            Hello
-        </div>
+        <form>
+            <h1>Log in!</h1>
+           
+                <label htmlFor='email'>Email: </label>
+                <input 
+                id='email'
+                type='text'
+                placeholder='email'
+                name='email'
+                /> 
+                <label htmlFor='password'>Password: </label>
+                
+        </form>
     )
 }
 

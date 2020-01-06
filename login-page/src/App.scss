@@ -1,5 +1,12 @@
+html,body,.App, #root {
+  min-height: 100vh;
+  width: 100%;
+  // margin: 0;
+  // padding: 0;
+}
 .App {
   text-align: center;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -28,6 +35,35 @@
   color: #61dafb;
 }
 
+form {
+  margin: 5rem 20rem 0 20rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 1px solid gold;
+}
+
+input {
+  width: 100%;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+div .email {
+  margin-left: -81%;
+}
+
+div .password {
+  margin-left: -71%;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px 5px;
+}
+.form-content{
+  width: 26%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

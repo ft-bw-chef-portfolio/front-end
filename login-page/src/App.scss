@@ -36,7 +36,7 @@ html,body,.App, #root {
 }
 
 form {
-  margin: 5rem 20rem 0 20rem;
+  margin: 5% 30% 0 30%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -50,16 +50,17 @@ input {
 }
 
 div .email {
-  margin-left: -81%;
+  margin-left: -71%;
 }
 
 div .password {
-  margin-left: -71%;
+  margin-left: -53%;
 }
 
 button {
   padding: 10px 20px;
   margin: 10px 5px;
+  background-color: orange;
 }
 .form-content{
   width: 26%;

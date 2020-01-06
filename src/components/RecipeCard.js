@@ -1,6 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 
 function RecipeCard({ recipes }) {
   return (
@@ -12,4 +10,3 @@ function RecipeCard({ recipes }) {
 }
 
 export default RecipeCard;
-// // // // // // // // // // //

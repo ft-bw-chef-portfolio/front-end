@@ -1,0 +1,20 @@
+h1 {
+  color: red;
+}
+.container {
+  background-image: url('../images/signupbg.jpg');
+}
+
+.signupBox {
+  background-color: gold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 20%;
+}

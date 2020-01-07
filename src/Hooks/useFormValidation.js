@@ -1,7 +1,21 @@
 import React from 'react';
 
-export default function useFormValidation(initialState) {
+export default function useFormValidation(initialState, validate) {
   const [values, setValues] = React.useState(initialState);
+  const [errors, setErrors] = React.useState({});
+  const [isSubmitting, setSubmitting] = React.useState(false);
+
+  React.useEffect(() => {
+    if (isSubmitting) {
+      const noErrors = Object.keys(errors).length === 0;
+      if (noErrors) {
+        console.log('hello, chef', values);
+        setSubmitting(false);
+      } else {
+        setSubmitting(false);
+      }
+    }
+  }, [errors]);
 
   function handleChange(event) {
     setValues({
@@ -10,10 +24,25 @@ export default function useFormValidation(initialState) {
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log('hello, chef', values);
+  function handleBlur() {
+    const validationErrors = validate(values);
+    setErrors(validationErrors);
   }
 
-  return { handleChange, handleSubmit, values };
+  function handleSubmit(event) {
+    event.preventDefault();
+    const validationErrors = validate(values);
+    setErrors(validationErrors);
+
+    setSubmitting(true);
+  }
+
+  return {
+    handleChange,
+    handleSubmit,
+    handleBlur,
+    errors,
+    isSubmitting,
+    values
+  };
 }

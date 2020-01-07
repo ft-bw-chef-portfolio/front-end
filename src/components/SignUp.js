@@ -1,5 +1,6 @@
 import React from 'react';
 import useFormValidation from '../Hooks/useFormValidation';
+import validateAuth from '../Hooks/validateAuth';
 import '../styles/signup.scss';
 
 const initialState = {
@@ -13,9 +14,14 @@ const initialState = {
 };
 
 const SignUp = () => {
-  const { handleChange, values, handleSubmit } = useFormValidation(
-    initialState
-  );
+  const {
+    handleChange,
+    values,
+    handleSubmit,
+    errors,
+    handleBlur,
+    isSubmitting
+  } = useFormValidation(initialState, validateAuth);
 
   return (
     <div className="container">
@@ -24,6 +30,7 @@ const SignUp = () => {
         <form onSubmit={handleSubmit}>
           <input
             onChange={handleChange}
+            onBlur={handleBlur}
             name="username"
             value={values.username}
             placeholder="Your username"
@@ -31,6 +38,7 @@ const SignUp = () => {
           />
           <input
             onChange={handleChange}
+            onBlur={handleBlur}
             name="name"
             value={values.name}
             type="text"
@@ -41,22 +49,27 @@ const SignUp = () => {
             name="email"
             value={values.email}
             type="password"
+            className={errors.email && 'error-input'}
             placeholder="Your email"
           />
+          {errors.email && <p className="errors-text">{errors.email}</p>}
           <input
             onChange={handleChange}
+            onBlur={handleBlur}
             name="password"
             value={values.password}
             placeholder="Your password"
           />
           <input
             onChange={handleChange}
+            onBlur={handleBlur}
             name="location"
             value={values.location}
             placeholder="Your location"
           />
           <input
             onChange={handleChange}
+            onBlur={handleBlur}
             name="website"
             value={values.website}
             placeholder="Your website"
@@ -64,11 +77,14 @@ const SignUp = () => {
 
           <input
             onChange={handleChange}
+            onBlur={handleBlur}
             name="phone"
             value={values.phone}
             placeholder="Your phone number"
           />
-          <button type="submit">Submit</button>
+          <button disabled={isSubmitting} type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>

@@ -1,11 +1,12 @@
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, FETCH_SINGLE_SUCCESS } from "../actions";
+import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, FETCH_SINGLE_SUCCESS, START_SINGLE_FETCHING, FETCH_SINGLE_FAILURE, START_INSTRUCTION_FETCHING, FETCH_INSTRUCTION_SUCCESS, FETCH_INSTRUCTION_FAILURE} from "../actions";
 
 //possible states
 const initialState = {
   recipes: [],
   isFetching: false,
   error: "",
-  recipe: ''
+  recipe: [],
+  instructions: ""
 };
 
 //state transitioning
@@ -26,6 +27,19 @@ const reducer = (state = initialState, action) => {
         error: "",
         recipes: action.payload
       };
+    case FETCH_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };   
+
+      case START_SINGLE_FETCHING:
+        return {
+          ...state,
+          isFetching: true,
+          error: ""
+        };
       case FETCH_SINGLE_SUCCESS:
         return {
           ...state,
@@ -33,12 +47,33 @@ const reducer = (state = initialState, action) => {
           error: "",
           recipe: action.payload
         };
-    case FETCH_FAILURE:
-      return {
-        ...state,
-        error: action.payload,
-        isFetching: false
-      };
+        case FETCH_SINGLE_FAILURE:
+          return {
+            ...state,
+            error: action.payload,
+            isFetching: false
+          }; 
+
+          case START_INSTRUCTION_FETCHING:
+            return {
+              ...state,
+              isFetching: true,
+              error: ""
+            };
+          case FETCH_INSTRUCTION_SUCCESS:
+            return {
+              ...state,
+              isFetching: false,
+              error: "",
+              instructions: action.payload
+            };
+            case FETCH_INSTRUCTION_FAILURE:
+              return {
+                ...state,
+                error: action.payload,
+                isFetching: false
+              }; 
+
     // case NEW_SMURF_FETCH:
     //   return {
     //     ...state,

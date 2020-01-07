@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Recipe from "./Recipe";
+import Recipe from "./Solo_Recipe";
 
-function RecipeCard({ recipe }) {
+function RecipeCard({ recipe, error }) {
   return (
     <div className="App">
-      <h1>{recipe.id}</h1>
-      <img src={recipe.image} alt="recipe pic" width="200px" height="200px" />
-      <Link to={`/recipes/${recipe.id}`}>
-        {recipe.title}
-        <Recipe key={recipe.id} recipe={recipe}/>
+      <Link to={`/${recipe.id}`}> 
+        <div className="single-recipe">
+          {error && <p>{error}</p>}
+          <h1>{recipe.title}</h1>
+          <p>{console.log(recipe.chef)}</p>
+          <img src={recipe.image} alt="recipe pic" width="200px" height="200px" />
+          <h3>Chef: {recipe.chef && recipe.chef.name}</h3> 
+        </div>
       </Link>
-      <h3>Chef: {recipe.chef.name}</h3>
     </div>
   );
 }

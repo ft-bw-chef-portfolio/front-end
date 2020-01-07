@@ -8,9 +8,9 @@ import RecipeCard from "./RecipeCard";
 const HomePage = ({ fetchRecipes, recipes, error, isFetching }) => {
   useEffect(() => {
     fetchRecipes();
-  }, [fetchRecipes]);
+  }, []);
 
-  console.log(recipes);
+  console.log("inHome", recipes);
 
   if (isFetching) {
     return <h2>Loading Recipes...</h2>;

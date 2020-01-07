@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
-function Recipe({ recipe, error, isFetching }) {
+import { fetchSingleRecipe } from "../store/actions";
+
+function Recipe({ fetchSingleRecipe, recipe, error, isFetching }) {
+  
+  useEffect(() => {
+    fetchSingleRecipe(1);
+  }, []);
+
   if (isFetching) {
     return <h2>Loading Recipe...</h2>;
   }
@@ -20,5 +28,12 @@ function Recipe({ recipe, error, isFetching }) {
     </div>
   );
 }
+const mapStateToProps = state => {
+  return {
+    recipe: state.recipe,
+    isFetching: state.isFetching,
+    error: state.error
+  };
+};
 
-export default Recipe;
+export default connect(mapStateToProps, { fetchSingleRecipe })(Recipe);

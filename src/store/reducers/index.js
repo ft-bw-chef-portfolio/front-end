@@ -1,10 +1,11 @@
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE } from "../actions";
+import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, FETCH_SINGLE_SUCCESS } from "../actions";
 
 //possible states
 const initialState = {
   recipes: [],
   isFetching: false,
-  error: ""
+  error: "",
+  recipe: ''
 };
 
 //state transitioning
@@ -25,6 +26,13 @@ const reducer = (state = initialState, action) => {
         error: "",
         recipes: action.payload
       };
+      case FETCH_SINGLE_SUCCESS:
+        return {
+          ...state,
+          isFetching: false,
+          error: "",
+          recipe: action.payload
+        };
     case FETCH_FAILURE:
       return {
         ...state,

@@ -15,6 +15,7 @@ const HomePage = ({ fetchRecipes, recipes, error, isFetching }) => {
   if (isFetching) {
     return <h2>Loading Recipes...</h2>;
   }
+  
   return (
     <div className="recipe-list">
       {error && <p>{error}</p>}

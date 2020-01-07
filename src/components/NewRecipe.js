@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
 const NewRecipe = () => {
-
-//state
-const [title] = '';
+  //state
+  /* const [title] = '';
 const [type]
 const [ingredients]
-const [steps]
+const [steps] */
 
   return (
     <form>

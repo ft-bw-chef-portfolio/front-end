@@ -14,5 +14,10 @@ export default function validateAuth(values) {
     errors.password = 'Password too small;';
   }
 
+  //Username Errors
+  if (!values.username) {
+    errors.username = 'Required';
+  }
+
   return errors;
 }

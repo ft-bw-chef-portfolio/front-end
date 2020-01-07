@@ -30,15 +30,14 @@ const SignUp = () => {
         <form onSubmit={handleSubmit}>
           <input
             onChange={handleChange}
-            onBlur={handleBlur}
             name="username"
+            className="username"
             value={values.username}
             placeholder="Your username"
             type="text"
           />
           <input
             onChange={handleChange}
-            onBlur={handleBlur}
             name="name"
             value={values.name}
             type="text"
@@ -47,6 +46,7 @@ const SignUp = () => {
           <input
             onChange={handleChange}
             name="email"
+            onBlur={handleBlur}
             value={values.email}
             type="email"
             placeholder="Your email"
@@ -56,6 +56,7 @@ const SignUp = () => {
             onChange={handleChange}
             onBlur={handleBlur}
             name="password"
+            type="password"
             value={values.password}
             placeholder="Your password"
           />

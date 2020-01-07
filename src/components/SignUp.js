@@ -48,8 +48,7 @@ const SignUp = () => {
             onChange={handleChange}
             name="email"
             value={values.email}
-            type="password"
-            className={errors.email && 'error-input'}
+            type="email"
             placeholder="Your email"
           />
           {errors.email && <p className="errors-text">{errors.email}</p>}

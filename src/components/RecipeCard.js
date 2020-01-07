@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Recipe from "./Recipe";
+/* import React from 'react';
+import { Link } from 'react-router-dom';
+import Recipe from './Recipe';
 
 function RecipeCard({ recipe }) {
   return (
@@ -22,3 +22,4 @@ export default RecipeCard;
 //     <Link to={`/movies/${movie.id}`}>
 //       <MovieDetails key={movie.id} movie={movie} />
 //     </Link>
+ */

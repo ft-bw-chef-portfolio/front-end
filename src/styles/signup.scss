@@ -16,9 +16,19 @@ h1 {
 .signupBox {
   background-color: $bgboxcolor;
   width: 30%;
-  height: 70vh;
+  height: 80vh;
   border-radius: 20px;
   border: 5px solid gold;
+  opacity: 0.9;
+
+  @media (max-width: 900px) {
+    height: 100vh;
+    width: 40%;
+  }
+
+  @media (max-width: 700px) {
+    width: 60%;
+  }
 }
 
 form {
@@ -35,6 +45,10 @@ input {
   background-color: white;
   border: none;
   border-bottom: 1px solid gold;
+
+  @media (max-width: 900px) {
+    margin: 15px;
+  }
 }
 
 .error-input {
@@ -48,4 +62,13 @@ input {
   color: red;
   font-style: bold;
   font-size: 1.2rem;
+}
+
+button {
+  background-color: orange;
+  border: none;
+  padding: 10px;
+  margin-top: 5%;
+  color: white;
+  border-radius: 10px;
 }

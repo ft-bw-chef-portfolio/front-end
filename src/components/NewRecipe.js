@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const NewRecipe = () => {
+
+//state
+const [title] = '';
+const [type]
+const [ingredients]
+const [steps]
+
   return (
     <form>
       <h1> New Recipe</h1>

@@ -34,9 +34,23 @@ html,body,.App, #root {
 .App-link {
   color: #61dafb;
 }
+.logo-header{
+  margin: 5% 25%;
+  border: 2px solid orange;
+  padding-bottom: 5%;
+}
+
+p{
+  margin: -0.5% auto 0 auto;
+}
+
+.logo{
+  height: 10vmin;
+  margin-top: 2%;
+}
 
 form {
-  margin: 5% 30% 0 30%;
+  margin: 5% 10% 0 10%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -44,26 +58,39 @@ form {
 }
 
 input {
-  width: 100%;
+  width: 150%;
   padding: 10px 5px;
-  margin: 10px 5px;
+  margin: 10px 0px 10px -30px;
+}
+.email-content{
+  margin-left: -104%;
 }
 
-div .email {
-  margin-left: -71%;
-}
-
-div .password {
-  margin-left: -53%;
+.password-content {
+  margin-left: -88%;
 }
 
 button {
-  padding: 10px 20px;
-  margin: 10px 5px;
-  background-color: orange;
+  padding: 10px 30px;
+  margin: 40px 0px 20px 0px;
+  background-color: gold;
+  font-size: 20px;
+}
+
+button:hover{
+  background-color: white;
+  color:orange;
 }
 .form-content{
   width: 26%;
+}
+.link-signup{
+  margin-bottom: 5%;
+  color: rgb(90, 90, 90);
+}
+.link-signup:hover{
+  color:orange;
+  text-decoration: none;
 }
 @keyframes App-logo-spin {
   from {

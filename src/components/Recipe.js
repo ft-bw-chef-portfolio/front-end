@@ -19,12 +19,11 @@ function Recipe({ fetchSingleRecipe, recipe, error, isFetching }) {
       {error && <p>{error}</p>}
       <h1>Here is a recipe</h1>
       <h1>{recipe.title}</h1>
-      {/*
-      <img src={image} alt="recipe pic" width="200px" height="200px" />
-      <h3> Meal Type: {meal_type.name}</h3>
-      <h3>Chef: {chef.name}</h3>
+      {/* <img src={recipe.image} alt="recipe pic" width="200px" height="200px" />
+      <h3> Meal Type: {recipe.meal_type.name}</h3> */}
+      {/* <h3>Chef: {recipe.chef.name}</h3> */}
       <p>Ingredients: </p>
-      <p>Instructions:</p> */}
+      <p>Instructions:</p>
     </div>
   );
 }

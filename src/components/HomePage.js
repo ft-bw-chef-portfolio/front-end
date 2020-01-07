@@ -19,7 +19,7 @@ const HomePage = ({ fetchRecipes, recipes, error, isFetching }) => {
     <div className="recipe-list">
       {error && <p>{error}</p>}
       {recipes.map(recipe => (
-        <RecipeCard recipe={recipe} title={title} />
+        <RecipeCard recipe={recipe} />
       ))}
     </div>
   );

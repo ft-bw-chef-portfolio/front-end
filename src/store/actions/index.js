@@ -5,13 +5,24 @@ import axios from "axios";
 export const START_FETCHING = "START_FETCHING";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
+export const FETCH_SINGLE_SUCCESS = "FETCH_SINGLE_SUCCESS";
 
 export const fetchRecipes = () => dispatch => {
   // action objects
   dispatch({ type: START_FETCHING });
   axios
-    .get(`https://bw4-chef-test.herokuapp.com/recipes/`)
+    .get(`https://bw4-chef-test.herokuapp.com/recipes`)
     .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
-    .then(res => console.log(res.data))
+    .then(res => console.log("in fetch", res.data))
+    .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
+};
+
+export const fetchSingleRecipe = (id) => dispatch => {
+  // action objects
+  dispatch({ type: START_FETCHING });
+  axios
+    .get(`https://bw4-chef-test.herokuapp.com/recipes/${id}`)
+    .then(res => dispatch({ type: FETCH_SINGLE_SUCCESS, payload: res.data }))
+    // .then(res => console.log(res.data))
     .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
 };

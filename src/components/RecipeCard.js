@@ -9,7 +9,7 @@ function RecipeCard({ recipe }) {
       <img src={recipe.image} alt="recipe pic" width="200px" height="200px" />
       <Link to={`/recipes/${recipe.id}`}>
         {recipe.title}
-        <Recipe key={recipe.id} recipe={recipe} title={title} />
+        <Recipe key={recipe.id} recipe={recipe}/>
       </Link>
       <h3>Chef: {recipe.chef.name}</h3>
     </div>

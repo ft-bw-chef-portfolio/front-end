@@ -10,6 +10,8 @@ const HomePage = ({ fetchRecipes, recipes, error, isFetching }) => {
     fetchRecipes();
   }, [fetchRecipes]);
 
+  console.log(recipes);
+
   if (isFetching) {
     return <h2>Loading Recipes...</h2>;
   }
@@ -17,7 +19,7 @@ const HomePage = ({ fetchRecipes, recipes, error, isFetching }) => {
     <div className="recipe-list">
       {error && <p>{error}</p>}
       {recipes.map(recipe => (
-        <RecipeCard recipe={recipe} />
+        <RecipeCard recipe={recipe} title={title} />
       ))}
     </div>
   );

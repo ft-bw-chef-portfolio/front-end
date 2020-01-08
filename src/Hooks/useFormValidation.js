@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export default function useFormValidation(initialState, validate) {
   const [values, setValues] = React.useState(initialState);
@@ -10,12 +11,20 @@ export default function useFormValidation(initialState, validate) {
       const noErrors = Object.keys(errors).length === 0;
       if (noErrors) {
         console.log('hello, chef', values);
+        axios
+          .post('https://bw4-chef-test.herokuapp.com/chefs', values)
+          .then(response => {
+            console.log(response);
+          })
+          .catch(error => {
+            console.log(error);
+          });
         setSubmitting(false);
       } else {
         setSubmitting(false);
       }
     }
-  }, [errors]);
+  }, [errors, isSubmitting, values]);
 
   function handleChange(event) {
     setValues({
@@ -29,12 +38,18 @@ export default function useFormValidation(initialState, validate) {
     setErrors(validationErrors);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit(values, tools) {
+    /* event.preventDefault(); */
     const validationErrors = validate(values);
     setErrors(validationErrors);
-
-    setSubmitting(true);
+    axios
+      .post('https://bw4-chef-api.herokuapp.com/api/auth/register', values)
+      .then(res => {
+        debugger;
+      })
+      .catch();
+    /*     setSubmitting(true);
+     */
   }
 
   return {

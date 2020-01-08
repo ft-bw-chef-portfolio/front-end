@@ -36,15 +36,16 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
 
 
-export const loginUser = () => dispatch => {
+export const loginUser = info => dispatch => {
   dispatch({ type: START_LOGIN });
-  axiosWithAuth()
-    .post('auth/login')
+  axios
+    .post('https://bw4-chef-api.herokuapp.com/api/auth/login', {
+      username: info.username, password: info.password
+    })
     .then(res => {
       console.log("in login func", res);
       localStorage.setItem('token', res.data.token);
       dispatch({ type: LOGIN_SUCCESS });
-      history.push('/homepage');
     })
     .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
 };

@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../store/actions';
+import { Redirect } from 'react-router';
 
-const Login = ({ loginUser, isLogging }) => {
+const Login = () => {
     const dispatch = useDispatch();
+    //dispatch can be used to pull actions instead of connect
+    const {isLoggedin, isLogging} = useSelector((state) => state);
+    //useSelector can be used to pull state from reducers
 
     const [info, setInfo] = useState({
-        email: "",
+        username: "",
         password: ""
     });
 
@@ -26,9 +29,11 @@ const Login = ({ loginUser, isLogging }) => {
 
     const submitForm = e => {
         e.preventDefault();
-        loginUser();
+        dispatch(loginUser(info))
         console.log(info)
     }
+
+if (isLoggedin) return <Redirect to="/"/>
 
     // function myfunction() {
     //     var x = document.getElementById('password');
@@ -43,11 +48,11 @@ const Login = ({ loginUser, isLogging }) => {
         <form className='form' onSubmit={submitForm}>
             <h1 className='login-header'>Log in!</h1>
             <div className='form-content'>
-                <div className='email-content'>
-                    <label className='email' htmlFor='email'>Email: </label>
+                <div className='username-content'>
+                    <label className='username' htmlFor='username'>username: </label>
                 </div>
                 <input
-                    id='email'
+                    id='username'
                     type='text'
                     placeholder='Enter email'
                     name='email'
@@ -76,13 +81,4 @@ const Login = ({ loginUser, isLogging }) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        isLogging: state.isLogging,
-        isLoggedin: state.isLoggedin,
-        errorLogin: state.errorLogin,
-        loginCredentials: state.loginCredentials
-    };
-};
-  
-  export default connect(mapStateToProps, { loginUser })(Login);
+  export default Login;

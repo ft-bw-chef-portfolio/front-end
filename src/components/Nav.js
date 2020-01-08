@@ -5,11 +5,11 @@ function Nav(){
 
     return(
         <div>
-            <Link to="/">Home</Link>
+            <Link to="/">Dashboard</Link>
             {/* {!isLoggedin} */}
             <Link to="/login">Chef Login</Link>
             <Link to="/signup">Chef Signup</Link>
-            <Link to >Signout</Link>
+            <Link to="/signout">Signout</Link>
             <Link to >Add Recipe</Link>
         </div>
     )

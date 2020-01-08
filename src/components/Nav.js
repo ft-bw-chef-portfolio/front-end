@@ -9,7 +9,7 @@ function Nav(){
             {/* {!isLoggedin} */}
             <Link to="/login">Chef Login</Link>
             <Link to="/signup">Chef Signup</Link>
-            <Link to >Signout</Link>
+            <Link to="/signout">Signout</Link>
             <Link to >Add Recipe</Link>
         </div>
     )

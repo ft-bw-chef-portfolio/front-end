@@ -10,10 +10,6 @@ const initialState = {
   error: "",
   recipe: [],
   chefinfo: "",
-  loginCredentials: {
-    email: '',
-    password: ''
-  }
 };
 
 //state transitioning
@@ -25,14 +21,13 @@ const reducer = (state = initialState, action) => {
       return { 
         ...state,
         errorLogin: null, 
-        isLogging: true ,
-        loginCredentials: action.payload
+        isLogging: true 
       };
     case LOGIN_SUCCESS:
       return { 
         ...state, 
         isLogging: false, 
-        isLoggedin: true 
+        isLoggedin: true, 
       };
     case LOGIN_FAILURE:
       return { 

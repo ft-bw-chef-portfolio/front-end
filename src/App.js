@@ -13,7 +13,7 @@ function App() {
       <h1>Chef Portfolio</h1>
       {/*       <SignUp />
        */}
-      <Route path="/signup" component={NewRecipe} />
+      <Route path="/signup" component={SignUp} />
       <Route path="/newrecipe" component={NewRecipe} />
       <Route exact path="/" component={HomePage} />
       <Route exact path="/recipes/:id" component={Recipe} />

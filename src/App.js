@@ -14,7 +14,7 @@ function App() {
       <h1>Chef Portfolio</h1>
       <Nav />
       <Route exact path="/" component={HomePage} />
-      <Route path="/:id" component={Recipe} />
+      <Route exact path="/recipes/:id" component={Recipe} />
       <Route path="/signup" component={SignUp}/>
       <Route path="/login" component={Login}/>
     </div>

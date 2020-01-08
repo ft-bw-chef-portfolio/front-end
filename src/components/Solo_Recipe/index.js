@@ -22,19 +22,22 @@ function Recipe({ fetchSingleRecipe, recipe, error, isFetching }) {
   return (
     <div className="single-recipe">
       {error && <p>{error}</p>}
-      <h1>Here is a recipe</h1>
+      
       <h1>{recipe.title}</h1>
       <img src={recipe.image} alt="recipe pic" width="200px" height="200px" />
-      {/* <h3> Meal Type: {recipe.meal_type && recipe.meal_type.name} Will re-add when Backend adds chef info</h3>  */}
-      {/* <h3>Chef: {recipe.chef && recipe.chef.name}</h3>  Will re-add when Backend adds chef info*/}
+      <h3> Meal Type: {recipe.meal_type} </h3> 
+      <h3>Chef: {recipe.chef && recipe.chef.name}</h3> 
+
       <p>Ingredients:</p>
-      <ol>
+      <ul>
         {recipe.ingredients && recipe.ingredients.map(item => (<li>{item}</li>))}
-      </ol>
+      </ul>
+
       <p>Instructions: </p>
       <ol>
       {recipe.instructions && recipe.instructions.map(item => (<li>{item}</li>))}
       </ol>
+
     </div>
   );
 }

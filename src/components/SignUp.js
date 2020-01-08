@@ -1,7 +1,7 @@
 import React from 'react';
 import useFormValidation from '../Hooks/useFormValidation';
 import validateAuth from '../Hooks/validateAuth';
-import '../styles/signup.scss';
+import '../styles/styles.scss';
 
 const initialState = {
   username: '',

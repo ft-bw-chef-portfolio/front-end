@@ -1,7 +1,8 @@
 import React from 'react';
 import useFormValidation from '../Hooks/useFormValidation';
 import validateAuth from '../Hooks/validateAuth';
-import '../styles/styles.scss';
+import '../styles/signup.scss';
+import { Link } from 'react-router-dom';
 
 const initialState = {
   username: '',
@@ -26,7 +27,7 @@ const SignUp = () => {
   return (
     <div className="container">
       <div className="signupBox">
-        <h1>SignUp!</h1>
+        <h3>SignUp, Chef!</h3>
         <form onSubmit={handleSubmit}>
           <input
             onChange={handleChange}
@@ -83,9 +84,10 @@ const SignUp = () => {
             placeholder="Your phone number"
           />
           <button disabled={isSubmitting} type="submit">
-            Submit
+            SignUp
           </button>
         </form>
+        <Link className="login">Already have an account? Sign here!</Link>
       </div>
     </div>
   );

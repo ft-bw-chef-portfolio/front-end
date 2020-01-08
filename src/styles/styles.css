@@ -87,7 +87,7 @@ p {
 }
 
 .login-container {
-  background-image: url(/static/media/signupbg.b3661915.jpg);
+  background-image: url("../images/loginbg.jpg");
   background-size: cover;
   height: 70vh;
   display: -webkit-box;
@@ -107,6 +107,7 @@ p {
   height: 50vh;
   border-radius: 20px;
   border: 5px solid gold;
+  background-color: white;
 }
 
 .login-container .form h1 {

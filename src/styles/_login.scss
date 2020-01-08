@@ -1,0 +1,96 @@
+$loginbg: '../images/loginbg.jpg';
+
+html,body,.App, #root {
+    min-height: 100vh;
+    width: 100%;
+    // margin: 0;
+    // padding: 0;
+  }
+  .App {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .logo-header{
+    margin: 5% 25%;
+    border: 2px solid orange;
+    padding-bottom: 5%;
+  }
+  
+  p{
+    margin: -0.5% auto 0 auto;
+  }
+  
+  .logo{
+    height: 10vmin;
+    margin-top: 2%;
+  }
+  .login-container{
+        background-image: url($loginbg);
+        background-size: cover;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .form {
+            margin: 0 auto 0 auto;
+            width: 30%;
+            height: 50vh;
+            border-radius: 20px;
+            border: 5px solid gold;
+            background-color: white;
+            
+            h1{
+                color: red;
+                margin-top: 10%;
+            }
+            .form-content{
+                width: 43%;
+                margin-left: -7%;
+                .email-content{
+                    margin-left: -104%;
+                }
+                #email {
+                    width: 150%;
+                    padding: 10px 5px;
+                    margin: 10px 0px 10px -30px;
+                  }
+                  .password-content {
+                    margin-left: -88%;
+                  }
+                  #password {
+                    width: 150%;
+                    padding: 10px 5px;
+                    margin: 10px 0px 10px -30px;
+                  }
+              }//closes .form-content
+              button {
+                padding: 10px 30px;
+                margin: 40px 0px 20px 0px;
+                background-color: gold;
+                font-size: 20px;
+                &:hover{
+                    background-color: white;
+                    color:orange;
+                  }
+              }
+              .link-signup{
+                margin-top: 5%;
+                color: rgb(90, 90, 90);
+                &:hover{
+                    color:orange;
+                    text-decoration: none;
+                  }
+              }
+              
+          }//closes .form
+  }//closes .login-container
+  
+  
+  
+  
+  
+
+  
+  

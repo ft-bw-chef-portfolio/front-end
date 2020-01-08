@@ -39,8 +39,9 @@ const Login = ({ loginUser, isLogging }) => {
     //     }
     // }
     return (
+        <div className='login-container'>
         <form className='form' onSubmit={submitForm}>
-            <h2 className='login-header'>Log in!</h2>
+            <h1 className='login-header'>Log in!</h1>
             <div className='form-content'>
                 <div className='email-content'>
                     <label className='email' htmlFor='email'>Email: </label>
@@ -48,7 +49,7 @@ const Login = ({ loginUser, isLogging }) => {
                 <input
                     id='email'
                     type='text'
-                    placeholder='email'
+                    placeholder='Enter email'
                     name='email'
                     onChange={handleChanges}
                 />
@@ -71,6 +72,7 @@ const Login = ({ loginUser, isLogging }) => {
             <button type='submit'>Submit</button>
             <Link className='link-signup' to='/signup'>Don't have an account? Sign-up here!</Link>
         </form>
+        </div>
     )
 }
 

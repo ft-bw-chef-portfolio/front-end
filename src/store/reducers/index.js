@@ -41,43 +41,43 @@ const reducer = (state = initialState, action) => {
         isLogging: false }
         ;
 
-    case START_REGISTER:
-      return { 
-        ...state, 
-        errorRegistering: null, 
-        isRegistering: true 
-      };
-    case REGISTER_SUCCESS:
-      return { 
-        ...state, 
-        isRegistering: false, 
-        userLogged: true 
-      };
-    case REGISTER_FAILURE:
-      return { 
-        ...state, 
-        errorRegistering: action.payload, 
-        isRegistering: false 
-      };
+    // case START_REGISTER:
+    //   return { 
+    //     ...state, 
+    //     errorRegistering: null, 
+    //     isRegistering: true 
+    //   };
+    // case REGISTER_SUCCESS:
+    //   return { 
+    //     ...state, 
+    //     isRegistering: false, 
+    //     userLogged: true 
+    //   };
+    // case REGISTER_FAILURE:
+    //   return { 
+    //     ...state, 
+    //     errorRegistering: action.payload, 
+    //     isRegistering: false 
+    //   };
 
-    case START_LOGOUT:
-      return { 
-        ...state, 
-        errorLogout: null, 
-        isLoggingOut: true 
-      };
-    case LOGOUT_SUCCESS:
-      return { 
-        ...state, 
-        isLoggingOut: false, 
-        userLogged: false 
-      };
-    case LOGOUT_FAILURE:
-      return { 
-        ...state, 
-        errorLogout: action.payload, 
-        isLoggingOut: false 
-      };
+    // case START_LOGOUT:
+    //   return { 
+    //     ...state, 
+    //     errorLogout: null, 
+    //     isLoggingOut: true 
+    //   };
+    // case LOGOUT_SUCCESS:
+    //   return { 
+    //     ...state, 
+    //     isLoggingOut: false, 
+    //     userLogged: false 
+    //   };
+    // case LOGOUT_FAILURE:
+    //   return { 
+    //     ...state, 
+    //     errorLogout: action.payload, 
+    //     isLoggingOut: false 
+    //   };
     case START_FETCHING:
       return {
         ...state,

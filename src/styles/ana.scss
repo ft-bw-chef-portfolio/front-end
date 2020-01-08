@@ -1,24 +1,35 @@
 $bgboxcolor: white;
 $bgimage: '../images/signupbg.jpg';
+$globalfont: 'Verdana';
 
-h1 {
-  color: red;
+h3 {
+  color: orange;
 }
 .container {
   background-image: url($bgimage);
   background-size: cover;
   height: 100vh;
   display: flex;
+  font-family: $globalfont;
   align-items: center;
   justify-content: center;
 }
 
 .signupBox {
   background-color: $bgboxcolor;
-  width: 30%;
-  height: 70vh;
+  width: 40%;
+  height: 80vh;
   border-radius: 20px;
   border: 5px solid gold;
+
+  @media (max-width: 1000px) {
+    height: 100vh;
+    width: 50%;
+  }
+  @media (max-width: 950px) {
+    height: 100vh;
+    width: 60%;
+  }
 }
 
 form {
@@ -48,4 +59,20 @@ input {
   color: red;
   font-style: bold;
   font-size: 1.2rem;
+}
+
+button {
+  background-color: orange;
+  border: none;
+  border-radius: 20px;
+  padding: 15px 20px;
+  color: white;
+  font-family: $globalfont;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.login {
+  color: orange;
+  cursor: pointer;
 }

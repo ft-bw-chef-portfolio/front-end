@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../store/actions';
 
-const Login = props => {
-    console.log(props)
+const Login = ({ loginUser, isLogging }) => {
+    const dispatch = useDispatch();
+
     const [info, setInfo] = useState({
         email: "",
         password: ""
     });
+
+    if (isLogging) {
+        return <h2>Logging In...</h2>;
+      }
 
     const handleChanges = e => {
         setInfo({
@@ -18,6 +26,7 @@ const Login = props => {
 
     const submitForm = e => {
         e.preventDefault();
+        loginUser();
         console.log(info)
     }
 
@@ -67,4 +76,13 @@ const Login = props => {
     )
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        isLogging: state.isLogging,
+        isLoggedin: state.isLoggedin,
+        errorLogin: state.errorLogin,
+        loginCredentials: state.loginCredentials
+    };
+};
+  
+  export default connect(mapStateToProps, { loginUser })(Login);

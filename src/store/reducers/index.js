@@ -1,13 +1,19 @@
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, FETCH_SINGLE_SUCCESS, START_SINGLE_FETCHING, FETCH_SINGLE_FAILURE, START_CHEFINFO_FETCHING, FETCH_CHEFINFO_SUCCESS, FETCH_CHEFINFO_FAILURE, START_LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE} from "../actions";
+import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, FETCH_SINGLE_SUCCESS, START_SINGLE_FETCHING, FETCH_SINGLE_FAILURE, START_CHEFINFO_FETCHING, FETCH_CHEFINFO_SUCCESS, FETCH_CHEFINFO_FAILURE, START_LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, START_REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE, START_LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE} from "../actions";
 
 //possible states
 const initialState = {
   recipes: [],
   isFetching: false,
+  isLogging: false,
   isLoggedin: false,
+  errorLogin: false,
   error: "",
   recipe: [],
-  chefinfo: ""
+  chefinfo: "",
+  loginCredentials: {
+    email: '',
+    password: ''
+  }
 };
 
 //state transitioning
@@ -19,13 +25,14 @@ const reducer = (state = initialState, action) => {
       return { 
         ...state,
         errorLogin: null, 
-        isLogging: true 
+        isLogging: true ,
+        loginCredentials: action.payload
       };
     case LOGIN_SUCCESS:
       return { 
         ...state, 
         isLogging: false, 
-        userLogged: true 
+        isLoggedin: true 
       };
     case LOGIN_FAILURE:
       return { 

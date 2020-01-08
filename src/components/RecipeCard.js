@@ -11,7 +11,7 @@ function RecipeCard({ recipe, error }) {
           <h1>{recipe.title}</h1>
           <p>{console.log(recipe.chef)}</p>
           <img src={recipe.image} alt="recipe pic" width="200px" height="200px" />
-          <h3>Chef: {recipe.chef && recipe.chef.name}</h3> 
+          {/* <h3>Chef: {recipe.chef && recipe.chef.name}</h3> We'll add this when Backend updates */}  
         </div>
       </Link>
     </div>
@@ -19,8 +19,3 @@ function RecipeCard({ recipe, error }) {
 }
 
 export default RecipeCard;
-
-//   {movies.map(movie => (
-//     <Link to={`/movies/${movie.id}`}>
-//       <MovieDetails key={movie.id} movie={movie} />
-//     </Link>

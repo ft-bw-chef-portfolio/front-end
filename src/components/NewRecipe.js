@@ -1,49 +1,49 @@
-import React, { useState } from 'react';
-import '../styles/styles.scss';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import '../styles/_signup.scss';
 
 const NewRecipe = () => {
-  //state
-  /* const [title] = '';
-const [type]
-const [ingredients]
-const [steps] */
+  const { handleSubmit, register, errors, watch } = useForm();
+
+  const onSubmit = values => {
+    console.log(values);
+  };
+
+  console.log(watch('example'));
 
   return (
     <div className="container">
       <div className="box">
-        <form>
-          <h1> New Recipe</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h2> New Recipe</h2>
           <input
-            name="username"
-            className="username"
+            name="title"
             placeholder="Recipe Title"
             type="text"
+            ref={register({ required: true })}
           />
+          {errors.title && <span>Required!</span>}
           <button>Upload Image</button>
           <input
-            name="username"
-            className="username"
+            name="type"
             placeholder="Recipe Type"
             type="text"
+            ref={register}
           />
-          <input
-            name="username"
-            className="username"
+
+          <textarea
+            name="ingredients"
             placeholder="Ingredients"
             type="text"
+            ref={register}
           />
           <textarea
-            name="username"
-            className="username"
-            placeholder="Ingredients"
-            type="text"
-          />
-          <textarea
-            name="username"
-            className="username"
+            name="steps"
             placeholder="Recipe Steps"
             type="text"
+            ref={register}
           />
+          <button type="submit">Create</button>
         </form>
       </div>
     </div>

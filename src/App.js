@@ -1,12 +1,14 @@
-import React from "react";
-import { Router, Route } from "react-router-dom";
-import "./App.css";
+import React from 'react';
+import { Router, Route } from 'react-router-dom';
+import './App.css';
 
-import Nav from "./components/Nav"
-import HomePage from "./components/HomePage";
-import Recipe from "./components/Solo_Recipe";
+import Nav from './components/Nav';
+import HomePage from './components/HomePage';
+import Recipe from './components/Solo_Recipe';
+import NewRecipe from './components/NewRecipe';
+import EditRecipe from './components/EditRecipe';
 import SignUp from './components/SignUp';
-import Login from "./components/Login";
+import Login from './components/Login';
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
       <Nav />
       <Route exact path="/" component={HomePage} />
       <Route exact path="/recipes/:id" component={Recipe} />
-      <Route path="/signup" component={SignUp}/>
-      <Route path="/login" component={Login}/>
+      <Route path="/signup" component={SignUp} />
+      <Route path="/login" component={Login} />
+      <Route path="/newrecipe" component={NewRecipe} />
+      <Route path="/editrecipe" component={EditRecipe} />
     </div>
   );
 }

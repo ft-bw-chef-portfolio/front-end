@@ -1,9 +1,12 @@
 $bgboxcolor: white;
 $bgimage: '../images/signupbg.jpg';
 $globalfont: 'Verdana';
+$orange: #f05e23;
+//placeholder image for edit recipe
+$image: url('./../images/placeholder.jpg');
 
-h3 {
-  color: orange;
+h2 {
+  color: $orange;
 }
 .container {
   background-image: url($bgimage);
@@ -15,13 +18,30 @@ h3 {
   justify-content: center;
 }
 
-.signupBox {
+.box {
   background-color: $bgboxcolor;
   width: 40%;
   height: 80vh;
   border-radius: 20px;
   border: 5px solid gold;
+  opacity: 0.9;
+  @media (max-width: 1000px) {
+    height: 100vh;
+    width: 50%;
+  }
+  @media (max-width: 950px) {
+    height: 100vh;
+    width: 60%;
+  }
+}
 
+.boxedit {
+  background-color: $bgboxcolor;
+  width: 40%;
+  height: 90vh;
+  border-radius: 20px;
+  border: 5px solid gold;
+  opacity: 0.9;
   @media (max-width: 1000px) {
     height: 100vh;
     width: 50%;
@@ -62,17 +82,47 @@ input {
 }
 
 button {
-  background-color: orange;
+  background-color: $orange;
   border: none;
   border-radius: 20px;
   padding: 15px 20px;
+  font-size: 1em;
   color: white;
   font-family: $globalfont;
   margin-top: 5%;
   margin-bottom: 5%;
+
+  &:last-child {
+    width: 35%;
+    font-size: 1.3em;
+  }
 }
 
 .login {
-  color: orange;
+  color: $orange;
   cursor: pointer;
+}
+
+textarea {
+  border: 2px solid gold;
+  margin: 2% 0;
+  width: 80%;
+  height: 10vh;
+}
+
+::placeholder {
+  font-size: 20px;
+}
+
+.image {
+  background-image: $image;
+  width: 50%;
+  height: 20vh;
+  background-size: cover;
+}
+
+a::last-child::visited {
+  color: blue;
+  text-decoration: none;
+  float: right;
 }

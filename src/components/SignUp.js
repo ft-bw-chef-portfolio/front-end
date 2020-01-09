@@ -1,7 +1,7 @@
 import React from 'react';
 import useFormValidation from '../Hooks/useFormValidation';
 import validateAuth from '../Hooks/validateAuth';
-import '../styles/signup.scss';
+import '../styles/styles.scss';
 import { Link } from 'react-router-dom';
 
 const initialState = {
@@ -26,8 +26,8 @@ const SignUp = () => {
 
   return (
     <div className="container">
-      <div className="signupBox">
-        <h3>SignUp, Chef!</h3>
+      <div className="box">
+        <h2>SignUp, Chef!</h2>
         <form onSubmit={handleSubmit}>
           <input
             onChange={handleChange}

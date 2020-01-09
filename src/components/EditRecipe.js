@@ -1,6 +1,6 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import '../styles/_signup.scss';
+import React from "react";
+import { useForm } from "react-hook-form";
+import "../styles/signup.scss";
 
 const EditRecipe = () => {
   const { handleSubmit, register, errors, watch } = useForm();
@@ -9,7 +9,7 @@ const EditRecipe = () => {
     console.log(values);
   };
 
-  console.log(watch('example'));
+  console.log(watch("example"));
 
   return (
     <div className="container">

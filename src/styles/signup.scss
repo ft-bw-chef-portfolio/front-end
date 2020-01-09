@@ -16,46 +16,46 @@ h2 {
   font-family: $globalfont;
   align-items: center;
   justify-content: center;
-}
 
-.box {
-  background-color: $bgboxcolor;
-  width: 40%;
-  height: 80vh;
-  border-radius: 20px;
-  border: 5px solid gold;
-  opacity: 0.9;
-  @media (max-width: 1000px) {
-    height: 100vh;
-    width: 50%;
-  }
-  @media (max-width: 950px) {
-    height: 100vh;
-    width: 60%;
-  }
-}
+  .box {
+    background-color: $bgboxcolor;
+    width: 40%;
+    height: 80vh;
+    border-radius: 20px;
+    border: 5px solid gold;
+    opacity: 0.9;
+    @media (max-width: 1000px) {
+      height: 100vh;
+      width: 50%;
+    }
+    @media (max-width: 950px) {
+      height: 100vh;
+      width: 60%;
+    }
 
-.boxedit {
-  background-color: $bgboxcolor;
-  width: 40%;
-  height: 90vh;
-  border-radius: 20px;
-  border: 5px solid gold;
-  opacity: 0.9;
-  @media (max-width: 1000px) {
-    height: 100vh;
-    width: 50%;
-  }
-  @media (max-width: 950px) {
-    height: 100vh;
-    width: 60%;
-  }
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+      button {
+        background-color: $orange;
+        border: none;
+        border-radius: 20px;
+        padding: 15px 20px;
+        font-size: 1em;
+        color: white;
+        font-family: $globalfont;
+        margin-top: 5%;
+        margin-bottom: 5%;
+
+        &:last-child {
+          width: 35%;
+          font-size: 1.3em;
+        }
+      }
+    }
+  }
 }
 
 input {
@@ -81,48 +81,7 @@ input {
   font-size: 1.2rem;
 }
 
-button {
-  background-color: $orange;
-  border: none;
-  border-radius: 20px;
-  padding: 15px 20px;
-  font-size: 1em;
-  color: white;
-  font-family: $globalfont;
-  margin-top: 5%;
-  margin-bottom: 5%;
-
-  &:last-child {
-    width: 35%;
-    font-size: 1.3em;
-  }
-}
-
 .login {
   color: $orange;
   cursor: pointer;
-}
-
-textarea {
-  border: 2px solid gold;
-  margin: 2% 0;
-  width: 80%;
-  height: 10vh;
-}
-
-::placeholder {
-  font-size: 20px;
-}
-
-.image {
-  background-image: $image;
-  width: 50%;
-  height: 20vh;
-  background-size: cover;
-}
-
-a::last-child::visited {
-  color: blue;
-  text-decoration: none;
-  float: right;
 }

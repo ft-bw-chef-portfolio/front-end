@@ -18,9 +18,8 @@ const initialState = {
 };
 
 const SignUp = () => {
-  
   const dispatch = useDispatch();
-  const {userLogged} = useSelector((state) => state);
+  const { userLogged } = useSelector(state => state);
 
   const {
     handleChange,
@@ -31,7 +30,7 @@ const SignUp = () => {
     isSubmitting
   } = useFormValidation(initialState, validateAuth);
 
-  if (userLogged) return <Redirect to="/login"/>
+  if (userLogged) return <Redirect to="/login" />;
 
   return (
     <div className="container">
@@ -96,7 +95,9 @@ const SignUp = () => {
             SignUp
           </button>
         </form>
-        <Link className="login">Already have an account? Sign here!</Link>
+        <Link to="/login" className="login">
+          Already have an account? Sign here!
+        </Link>
       </div>
     </div>
   );

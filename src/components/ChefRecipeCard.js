@@ -4,7 +4,7 @@ import Recipe from "./Solo_Recipe";
 
 function ChefRecipeCard({ recipe, error }) {
   return (
-    <div className="App">
+    <div>
         
         <Link to={`/recipes/${recipe.id}`}> 
             <div>

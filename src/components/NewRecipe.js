@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createNewRecipe } from '../store/actions';
 import { Redirect } from 'react-router';
-//import '../styles/styles.scss';
+import '../styles/styles.scss';
 
 
 

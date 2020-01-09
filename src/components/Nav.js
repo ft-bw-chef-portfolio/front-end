@@ -11,6 +11,7 @@ function Nav(){
             <Link to="/signup">Chef Signup</Link>
             <Link to="/signout">Signout</Link>
             <Link to="/newrecipe">Add Recipe</Link>
+            <Link to="/chefuser">My Portfolio</Link>
         </div>
     )
 }

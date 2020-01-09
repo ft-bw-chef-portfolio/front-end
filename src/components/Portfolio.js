@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { fetchChefInfo, fetchChefsRecipes} from "../store/actions";
 
 import RecipeCard from "./RecipeCard";
+import ChefInfoCard from './ChefInfoCard';
 
 const Portfolio = ({ fetchChefInfo, fetchChefsRecipes, chefinfo, chefrecipes }) => {
 
@@ -19,12 +20,22 @@ const Portfolio = ({ fetchChefInfo, fetchChefsRecipes, chefinfo, chefrecipes }) 
     return(
         <div>
             <h1>This Chef's Portfolio: </h1>
-            <p>{chefinfo && chefinfo.map(
-                item => item.name)}</p>
+           
+            <p>{chefinfo && chefinfo.filter(chefinfo => {
+                
+                console.log("chefinfoid", chefinfo.id);
+                console.log("id", id);
+                
+                if (chefinfo.id === id)
+                {
+                return(
+                <ChefInfoCard chefinfo={chefinfo}/>)
+                    }}
+                )}</p>
 
-        <p>{chefrecipes && chefrecipes.map(recipe => (
-         <RecipeCard recipe={recipe} />
-      ))}</p>
+            <p>{chefrecipes && chefrecipes.map(recipe => (
+                <RecipeCard recipe={recipe} />
+                ))}</p>
         </div>
     )
 };

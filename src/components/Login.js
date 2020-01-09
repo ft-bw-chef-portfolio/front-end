@@ -68,11 +68,7 @@ if (isLoggedin) return <Redirect to="/"/>
                     name='password'
                     onChange={handleChanges}
                 />
-                {/* <input
-                        id='checkbox' 
-                        type='checkbox' 
-                        value=''
-                        onClick='myfunction()' />Show Password */}
+            
             </div>
             <button type='submit'>Submit</button>
             <Link className='link-signup' to='/signup'>Don't have an account? Sign-up here!</Link>

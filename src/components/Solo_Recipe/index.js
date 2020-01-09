@@ -26,7 +26,10 @@ function Recipe({ fetchSingleRecipe, recipe, error, isFetching }) {
       <h1>{recipe.title}</h1>
       <img src={recipe.image} alt="recipe pic" width="200px" height="200px" />
       <h3> Meal Type: {recipe.meal_type} </h3> 
-      <Link to="/chefs"><h3>Chef: {recipe.chef && recipe.chef.name}</h3></Link>
+
+      <Link to={`/chefs/${recipe.chef && recipe.chef.id}/recipes`}>
+        <h3>Chef: {recipe.chef && recipe.chef.name}</h3>
+      </Link>
       
 
       <p>Ingredients:</p>

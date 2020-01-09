@@ -1,4 +1,5 @@
-import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, FETCH_SINGLE_SUCCESS, START_SINGLE_FETCHING, FETCH_SINGLE_FAILURE, START_CHEFINFO_FETCHING, FETCH_CHEFINFO_SUCCESS, FETCH_CHEFINFO_FAILURE, START_LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, START_REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE, START_LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE} from "../actions";
+import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, FETCH_SINGLE_SUCCESS, START_SINGLE_FETCHING, FETCH_SINGLE_FAILURE, START_CHEFINFO_FETCHING, FETCH_CHEFINFO_SUCCESS, FETCH_CHEFINFO_FAILURE, START_LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, START_REGISTER, REGISTER_SUCCESS, REGISTER_FAILURE, START_LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE, NEW_RECIPE_POST, NEW_RECIPE_SUCCESS, NEW_RECIPE_FAILURE, START_CHEF_RECIPES_FETCHING,FETCH_CHEF_RECIPES_SUCCESS, FETCH_CHEF_RECIPES_FAILURE } from "../actions";
+
 
 //possible states
 const initialState = {
@@ -8,9 +9,12 @@ const initialState = {
   isLoggedin: false,
   errorLogin: false,
   userLogged: false,
+  isPosting: false,
+  isPosted: false,
   error: "",
   recipe: [],
   chefinfo: "",
+  chefrecipes: []
 };
 
 //state transitioning
@@ -134,6 +138,47 @@ const reducer = (state = initialState, action) => {
                 isFetching: false
               }; 
 
+            case START_CHEF_RECIPES_FETCHING:
+              return{
+                ...state,
+                isFetching: true,
+                error: ""
+              };
+            case FETCH_CHEF_RECIPES_SUCCESS:
+              return{
+                ...state,
+              isFetching: false,
+              error: "",
+              chefrecipes: action.payload
+              };
+            case FETCH_CHEF_RECIPES_FAILURE:
+              return{
+                ...state,
+                error: action.payload,
+                isFetching: false
+              };
+
+            case NEW_RECIPE_POST:
+              return {
+                ...state,
+                recipes: [...state.recipes, action.payload],
+                isPosting: true,
+                error: ''
+              };
+            case NEW_RECIPE_SUCCESS:
+              return {
+               ...state,
+               recipe: action.payload,
+               isPosting: false,
+               isPosted: true,
+               error: ''
+              };
+           case NEW_RECIPE_FAILURE:
+              return {
+                ...state,
+                isPosting: false,
+               error: action.payload
+              };
 
     default:
       return state;

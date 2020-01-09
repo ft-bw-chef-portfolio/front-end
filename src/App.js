@@ -20,7 +20,7 @@ function App() {
       <Route path="/signup" component={SignUp}/>
       <Route path="/login" component={Login}/>
       <Route path="/newrecipe" component={NewRecipe} />
-      <Route path="/chefs" component={Portfolio}/>
+      <Route path="/chefs/:id/recipes" component={Portfolio}/>
     </div>
   );
 }

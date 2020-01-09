@@ -49,7 +49,9 @@ const EditRecipe = () => {
             type="text"
             ref={register}
           />
-          <button type="submit">Update Recipe</button>
+          <button className="editbtn" type="submit">
+            Update Recipe
+          </button>
         </form>
       </div>
     </div>

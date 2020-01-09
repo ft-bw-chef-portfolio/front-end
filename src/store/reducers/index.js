@@ -22,6 +22,7 @@ const initialState = {
 // isfetching
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+  //Login
     case START_LOGIN:
       return { 
         ...state,
@@ -41,6 +42,7 @@ const reducer = (state = initialState, action) => {
         isLogging: false }
         ;
 
+//Register
     case START_REGISTER:
       return { 
         ...state, 
@@ -60,24 +62,29 @@ const reducer = (state = initialState, action) => {
         isRegistering: false 
       };
 
-    // case START_LOGOUT:
-    //   return { 
-    //     ...state, 
-    //     errorLogout: null, 
-    //     isLoggingOut: true 
-    //   };
-    // case LOGOUT_SUCCESS:
-    //   return { 
-    //     ...state, 
-    //     isLoggingOut: false, 
-    //     userLogged: false 
-    //   };
-    // case LOGOUT_FAILURE:
-    //   return { 
-    //     ...state, 
-    //     errorLogout: action.payload, 
-    //     isLoggingOut: false 
-    //   };
+//Logout
+    case START_LOGOUT:
+      return { 
+        ...state, 
+        errorLogout: null, 
+        isLoggingOut: true,
+        isLoggedin: true, 
+      };
+    case LOGOUT_SUCCESS:
+      return { 
+        ...state, 
+        isLoggingOut: false, 
+        userLogged: false, 
+        isLoggedin: false,
+      };
+    case LOGOUT_FAILURE:
+      return { 
+        ...state, 
+        errorLogout: action.payload, 
+        isLoggingOut: false 
+      };
+
+  //Fetching all recipes
     case START_FETCHING:
       return {
         ...state,
@@ -98,6 +105,7 @@ const reducer = (state = initialState, action) => {
         isFetching: false
       };   
 
+//Fetching Single recipes
       case START_SINGLE_FETCHING:
         return {
           ...state,
@@ -117,7 +125,7 @@ const reducer = (state = initialState, action) => {
             error: action.payload,
             isFetching: false
           }; 
-
+//Fetch Chef Info details
           case START_CHEFINFO_FETCHING:
             return {
               ...state,
@@ -138,6 +146,7 @@ const reducer = (state = initialState, action) => {
                 isFetching: false
               }; 
 
+//Fetch specific chef info
             case START_CHEF_RECIPES_FETCHING:
               return{
                 ...state,
@@ -158,6 +167,7 @@ const reducer = (state = initialState, action) => {
                 isFetching: false
               };
 
+//New Recipe Post
             case NEW_RECIPE_POST:
               return {
                 ...state,

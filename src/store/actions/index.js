@@ -78,18 +78,15 @@ export const registerUser = initialState => dispatch => {
     })
     .catch(err => dispatch({ type: REGISTER_FAILURE, payload: err }));
 };
-
+//LOGOUT USER
 export const logoutUser = () => dispatch => {
   dispatch({ type: START_LOGOUT });
-  axiosWithAuth()
-    .get("auth/logout")
-    .then(res => {
       localStorage.removeItem("token");
       dispatch({ type: LOGOUT_SUCCESS });
-      // history.push('/login')
-    })
-    .catch(err => dispatch({ type: LOGOUT_FAILURE, payload: err }));
+      history.push('/')
 };
+
+
 
 //FETCH ALL RECIPES
 export const fetchRecipes = () => dispatch => {

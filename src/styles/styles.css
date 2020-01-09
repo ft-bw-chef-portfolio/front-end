@@ -162,8 +162,10 @@ p {
   text-decoration: none;
 }
 
-div {
-  width: 25%;
+.App .nav {
+  margin-top: 7.8rem;
+  height: 100%;
+  width: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -171,5 +173,23 @@ div {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border: 1px solid orange;
+  position: absolute;
+  background-color: white;
+}
+
+.App .nav a {
+  margin: 2% 0;
+  width: 25%;
+  border-bottom: 1px solid gold;
+  padding: 15% 0%;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+}
+
+.App .nav a:hover {
+  background-color: orange;
+  color: gold;
 }
 /*# sourceMappingURL=styles.css.map */

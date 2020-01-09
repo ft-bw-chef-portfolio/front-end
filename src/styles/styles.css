@@ -210,4 +210,14 @@ p {
   display: flex;
   margin: 0 auto;
 }
+
+.single-recipe h1 {
+  text-decoration: underline;
+  -webkit-text-decoration-color: sienna;
+          text-decoration-color: sienna;
+}
+
+.single-recipe img {
+  margin: 2% auto 5% auto;
+}
 /*# sourceMappingURL=styles.css.map */

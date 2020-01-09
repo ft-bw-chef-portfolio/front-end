@@ -35,7 +35,6 @@ export const START_LOGOUT = 'START_LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
 
-
 export const loginUser = info => dispatch => {
   dispatch({ type: START_LOGIN });
   axios
@@ -50,15 +49,21 @@ export const loginUser = info => dispatch => {
     .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
 };
 
-export const registerUser = newUser => dispatch => {
+export const registerUser = initialState => dispatch => {
   dispatch({ type: START_REGISTER });
   axios
-    .post('auth/register', newUser)
+    .post('https://bw4-chef-api.herokuapp.com/api/auth/register', {
+      username: initialState.username,
+      name: initialState.name,
+      email: initialState.email,
+      password: initialState.password,
+      location: initialState.location,
+      website: initialState.website,
+      phone: initialState.phone
+    })
     .then(res => {
       localStorage.setItem('token', res.data.access_token);
-
       dispatch({ type: REGISTER_SUCCESS });
-      history.push('/');
     })
     .catch(err => dispatch({ type: REGISTER_FAILURE, payload: err }));
 }
@@ -70,58 +75,11 @@ export const logoutUser = () => dispatch => {
     .then(res => {
       localStorage.removeItem('token');
 
-// export const loginUser = (username, password) => dispatch => {
-//   dispatch({ type: START_LOGIN });
-
-//   axiosWithAuth()
-//     .post('https://chef-portfoliosis.herokuapp.com/api/auth/login', {
-//       username: username,
-//       password: password
-//     })
-//     .then(res => {
-//       localStorage.setItem('token', res.data.token);
-//       dispatch({ type: LOGIN_SUCCESS });
-//       history.push('/');
-//     })
-//     .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
-// };
-
-// REGISTER ACTIONS
-
-// export const START_REGISTER = 'START_REGISTER';
-// export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
-// export const REGISTER_FAILURE = 'REGISTER_FAILURE';
-// export const registerUser = newUser => dispatch => {
-//   dispatch({ type: START_REGISTER });
-//   axios
-//     .post('https://chef-portfoliosis.herokuapp.com/api/auth/register', newUser)
-//     .then(res => {
-//       localStorage.setItem('token', res.data.access_token);
-
-//       dispatch({ type: REGISTER_SUCCESS });
-//       history.push('/');
-//     })
-//     .catch(err => dispatch({ type: REGISTER_FAILURE, payload: err }));
-// }
-
-// LOG OUT ACTIONS
-
-// export const START_LOGOUT = 'START_LOGOUT';
-// export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-// export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
-
-// export const logoutUser = () => dispatch => {
-//   dispatch({ type: START_LOGOUT });
-//   axiosWithAuth()
-//     .get('logout')
-//     .then(res => {
-//       localStorage.removeItem('token');
-
-//       dispatch({ type: LOGOUT_SUCCESS });
-//       history.push('/login')
-//     })
-//     .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
-// }
+      dispatch({ type: LOGOUT_SUCCESS });
+      history.push('/login')
+    })
+    .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
+}
 
 //FETCH ALL RECIPES
 export const fetchRecipes = () => dispatch => {
@@ -139,6 +97,7 @@ export const fetchSingleRecipe = (id) => dispatch => {
   axios
     .get(`https://bw4-chef-api.herokuapp.com/api/recipes/${id}`)
     .then(res => dispatch({ type: FETCH_SINGLE_SUCCESS, payload: res.data }))
+    .then(res => console.log("single rec", res))
     .catch(err => dispatch({ type: FETCH_SINGLE_FAILURE, payload: err.response }));
 };
 
@@ -151,13 +110,4 @@ export const fetchChefInfo = () => dispatch => {
     .catch(err => dispatch({ type: FETCH_CHEFINFO_FAILURE, payload: err.response }));
 };
 
-// export const fetchChefInfo = () => dispatch => {
-//   // action objects
-//   dispatch({ type: START_CHEFINFO_FETCHING });
-//   axios
-//     .get(`https://bw4-chef-api.herokuapp.com/api/chefs`)
-//     .then(res => dispatch({ type: FETCH_CHEFINFO_SUCCESS, payload: res.data }))
-//     // .then(res => console.log(res.data))
-//     .catch(err => dispatch({ type: FETCH_CHEFINFO_FAILURE, payload: err.response }));
-// };
 

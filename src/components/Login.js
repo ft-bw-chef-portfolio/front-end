@@ -54,8 +54,8 @@ if (isLoggedin) return <Redirect to="/"/>
                 <input
                     id='username'
                     type='text'
-                    placeholder='Enter email'
-                    name='email'
+                    placeholder='Enter username'
+                    name='username'
                     onChange={handleChanges}
                 />
                 <div className='password-content'>

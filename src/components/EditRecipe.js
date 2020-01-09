@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import '../styles/_signup.scss';
+import '../styles/styles.scss';
 
 const EditRecipe = () => {
   const { handleSubmit, register, errors, watch } = useForm();

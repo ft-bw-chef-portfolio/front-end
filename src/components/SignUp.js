@@ -1,7 +1,7 @@
 import React from 'react';
 import useFormValidation from '../Hooks/useFormValidation';
 import validateAuth from '../Hooks/validateAuth';
-//import '../styles/signup.scss';
+import '../styles/signup.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router';

@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 function Nav() {
   return (
     <div>
-      <Link to="/">Dashboard</Link>
+      <Link to="/">Home</Link>
       {/* {!isLoggedin} */}
       <Link to="/login">Chef Login</Link>
       <Link to="/signup">Chef Signup</Link>
       <Link to="/signout">Signout</Link>
       <Link to="/newrecipe">Add Recipe</Link>
-      <Link to="/editrecipe">Edit Recipe</Link>
+      <Link to="/chefuser">My Portfolio</Link>
     </div>
   );
 }

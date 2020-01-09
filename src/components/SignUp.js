@@ -3,6 +3,9 @@ import useFormValidation from '../Hooks/useFormValidation';
 import validateAuth from '../Hooks/validateAuth';
 import '../styles/styles.scss';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router';
+import { registerUser } from '../store/actions';
 
 const initialState = {
   username: '',
@@ -15,6 +18,10 @@ const initialState = {
 };
 
 const SignUp = () => {
+  
+  const dispatch = useDispatch();
+  const {userLogged} = useSelector((state) => state);
+
   const {
     handleChange,
     values,
@@ -23,6 +30,8 @@ const SignUp = () => {
     handleBlur,
     isSubmitting
   } = useFormValidation(initialState, validateAuth);
+
+  if (userLogged) return <Redirect to="/login"/>
 
   return (
     <div className="container">

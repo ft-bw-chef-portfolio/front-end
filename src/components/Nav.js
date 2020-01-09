@@ -1,24 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import '../images/userimg.png';
-import '../styles/styles.scss';
+import '../styles/_nav.scss';
 
 function Nav(){
 
     return(
         <div className='nav'>
-            <Link to="/">Home</Link>
+            <Link to="/"><img className='homeimg' src='src\images\homeicon.png' alt='home' />Home</Link>
             {/* {!isLoggedin} */}
-            {/* <div>
-            <img className='userimg' src='src\images\userimg.png' alt='user' />
-            </div> */}
-            <Link to="/login" >Chef Login</Link>
-            {/* <div>
-            <img className='loginimg' src='src\images\loginimg.png' alt='user' />
-            </div> */}
-            <Link to="/signup">Chef Signup</Link>
-            <Link to >Signout</Link>
-            <Link to >Add Recipe</Link>
+            <div>
+            
+            </div>
+            <Link to="/login" ><img className='userimg' src='src\images\userimg.png' alt='login' />Chef Login</Link>
+            <div>
+            </div>
+            <Link to="/signup"><img className='loginimg' src='src\images\loginimg.png' alt='signup' />
+Chef Signup</Link>
+            <Link to ><img className='logout' src='src\images\logout.png' alt='logout' />Signout</Link>
+            <Link to ><img className='addrecipe' src='src\images\add.png' alt='add recipe' />Add Recipe</Link>
         </div>
     )
 }

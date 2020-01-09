@@ -162,9 +162,19 @@ p {
   text-decoration: none;
 }
 
+.App {
+  margin: 2rem 0rem 0rem 20rem;
+}
+
+.App .title {
+  margin-left: -20rem;
+  width: 15%;
+}
+
 .App .nav {
-  margin-top: 7.8rem;
-  height: 100%;
+  margin-left: -20rem;
+  padding-top: 5rem;
+  height: 90%;
   width: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -191,5 +201,13 @@ p {
 .App .nav a:hover {
   background-color: orange;
   color: gold;
+}
+
+.App .nav a img {
+  width: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
 }
 /*# sourceMappingURL=styles.css.map */

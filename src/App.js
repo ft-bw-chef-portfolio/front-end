@@ -11,7 +11,7 @@ import Login from "./components/Login";
 function App() {
   return (
     <div className="App">
-      <h1>Chef Portfolio</h1>
+      <h1 className='title'>Chef Portfolio</h1>
       <Nav />
       <Route exact path="/" component={HomePage} />
       <Route path="/:id" component={Recipe} />

@@ -4,7 +4,6 @@ import '../styles/_signup.scss';
 
 const NewRecipe = () => {
   const { handleSubmit, register, errors, watch } = useForm();
-
   const onSubmit = values => {
     console.log(values);
   };

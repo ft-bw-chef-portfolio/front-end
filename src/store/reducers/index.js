@@ -7,6 +7,7 @@ const initialState = {
   isLogging: false,
   isLoggedin: false,
   errorLogin: false,
+  userLogged: false,
   error: "",
   recipe: [],
   chefinfo: "",
@@ -36,24 +37,24 @@ const reducer = (state = initialState, action) => {
         isLogging: false }
         ;
 
-    // case START_REGISTER:
-    //   return { 
-    //     ...state, 
-    //     errorRegistering: null, 
-    //     isRegistering: true 
-    //   };
-    // case REGISTER_SUCCESS:
-    //   return { 
-    //     ...state, 
-    //     isRegistering: false, 
-    //     userLogged: true 
-    //   };
-    // case REGISTER_FAILURE:
-    //   return { 
-    //     ...state, 
-    //     errorRegistering: action.payload, 
-    //     isRegistering: false 
-    //   };
+    case START_REGISTER:
+      return { 
+        ...state, 
+        errorRegistering: null, 
+        isRegistering: true 
+      };
+    case REGISTER_SUCCESS:
+      return { 
+        ...state, 
+        isRegistering: false, 
+        userLogged: true 
+      };
+    case REGISTER_FAILURE:
+      return { 
+        ...state, 
+        errorRegistering: action.payload, 
+        isRegistering: false 
+      };
 
     // case START_LOGOUT:
     //   return { 
@@ -133,35 +134,7 @@ const reducer = (state = initialState, action) => {
                 isFetching: false
               }; 
 
-    // case NEW_SMURF_FETCH:
-    //   return {
-    //     ...state,
-    //     smurfs: [...state.smurfs, action.payload],
-    //     isFetching: true,
-    //     error: ""
-    //   };
-    // case NEW_SMURF_SUCCESS:
-    //   return {
-    //     ...state,
-    //     smurfs: action.payload,
-    //     isFetching: false,
-    //     error: ""
-    //   };
-    // case NEW_SMURF_FAILURE:
-    //   return {
-    //     ...state,
-    //     isFetching: false,
-    //     error: action.payload
-    //   };
-    // case ADD_SMURF:
-    //   const newS = {
-    //     name: action.payload.name,
-    //     age: action.payload.age,
-    //     height: action.payload.height
-    //   }
-    // return[
-    //   ...state.smurfs, newS
-    // ]
+
     default:
       return state;
   }

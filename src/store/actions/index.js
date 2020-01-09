@@ -20,6 +20,11 @@ export const START_CHEFINFO_FETCHING = "START_CHEFINFO_FETCHING";
 export const FETCH_CHEFINFO_SUCCESS = "FETCH_CHEFINFO_SUCCESS";
 export const FETCH_CHEFINFO_FAILURE = "FETCH_CHEFINFO_FAILURE";
 
+//CHEF RECIPE ACTIONS
+export const START_CHEF_RECIPES_FETCHING = "START_CHEF_RECIPES_FETCHING";
+export const FETCH_CHEF_RECIPES_SUCCESS = "FETCH_CHEF_RECIPES_SUCCESS";
+export const FETCH_CHEF_RECIPES_FAILURE = "FETCH_CHEF_RECIPES_FAILURE";
+
 //LOGIN ACTIONS
 export const START_LOGIN = 'START_LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -34,6 +39,11 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 export const START_LOGOUT = 'START_LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
+
+// CREATE NEW RECIPE
+export const NEW_RECIPE_POST = 'NEW_RECIPE_POST';
+export const NEW_RECIPE_SUCCESS = 'NEW_RECIPE_SUCCESS';
+export const NEW_RECIPE_FAILURE = 'NEW_RECIPE_FAILURE'
 
 export const loginUser = info => dispatch => {
   dispatch({ type: START_LOGIN });
@@ -110,4 +120,23 @@ export const fetchChefInfo = () => dispatch => {
     .catch(err => dispatch({ type: FETCH_CHEFINFO_FAILURE, payload: err.response }));
 };
 
+
+// FETCH THE CHEFS RECIPES DATA 
+export const fetchChefsRecipes = (id) => dispatch => {
+  dispatch({ type: START_CHEF_RECIPES_FETCHING });
+  axios
+    .get(`http://bw4-chef-api.herokuapp.com/api/chefs/${id}/recipes/`)
+    .then(res => dispatch({ type: FETCH_CHEF_RECIPES_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: FETCH_CHEF_RECIPES_FAILURE, payload: err.response }));
+};
+
+// CREATE NEW RECIPE
+export const createNewRecipe = (recipe) => (dispatch) => {
+  dispatch({ type: NEW_RECIPE_POST });
+
+  axios
+    .post(`https://bw4-chef-api.herokuapp.com/api/recipes/`, recipe)
+    .then((res) => dispatch({ type: NEW_RECIPE_SUCCESS, payload: res.data }))
+    .catch((err) => dispatch({ type: NEW_RECIPE_FAILURE, payload: err }));
+};
 

@@ -31,11 +31,6 @@ const SignUp = () => {
     isSubmitting
   } = useFormValidation(initialState, validateAuth);
 
-  const submitForm = e => {
-    e.preventDefault();
-    dispatch(registerUser(initialState))
-  }
-
   if (userLogged) return <Redirect to="/login"/>
 
   return (

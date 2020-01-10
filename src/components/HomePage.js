@@ -5,7 +5,8 @@ import { fetchRecipes } from "../store/actions";
 
 import RecipeCard from "./RecipeCard";
 
-const HomePage = ({ fetchRecipes, recipes, error, isFetching }) => {
+const HomePage = ({ fetchRecipes, recipes, error, isFetching}) => {
+  
   useEffect(() => {
     fetchRecipes();
   }, []);

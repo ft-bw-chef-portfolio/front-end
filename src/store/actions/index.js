@@ -45,6 +45,17 @@ export const NEW_RECIPE_POST = "NEW_RECIPE_POST";
 export const NEW_RECIPE_SUCCESS = "NEW_RECIPE_SUCCESS";
 export const NEW_RECIPE_FAILURE = "NEW_RECIPE_FAILURE";
 
+//EDIT RECIPE
+export const START_EDIT_FETCHING = "START_EDIT_FETCHING";
+export const EDIT_RECIPE_SUCCESS = "EDIT_RECIPE_SUCCESS";
+export const EDIT_RECIPE_FAILURE = "EDIT_RECIPE_FAILURE";
+
+//DELETE RECIPE
+export const START_DELETE_FETCHING = "START_DELETE_FETCHING";
+export const DELETE_RECIPE_SUCCESS = "DELETE_RECIPE_SUCCESS";
+export const DELETE_RECIPE_FAILURE = "DELETE_RECIPE_FAILURE";
+
+//Login User
 export const loginUser = info => dispatch => {
   dispatch({ type: START_LOGIN });
   axios
@@ -60,6 +71,7 @@ export const loginUser = info => dispatch => {
     .catch(err => dispatch({ type: LOGIN_FAILURE, payload: err }));
 };
 
+//Register User
 export const registerUser = initialState => dispatch => {
   dispatch({ type: START_REGISTER });
   axios
@@ -78,6 +90,7 @@ export const registerUser = initialState => dispatch => {
     })
     .catch(err => dispatch({ type: REGISTER_FAILURE, payload: err }));
 };
+
 //LOGOUT USER
 export const logoutUser = () => dispatch => {
   dispatch({ type: START_LOGOUT });
@@ -85,8 +98,6 @@ export const logoutUser = () => dispatch => {
       dispatch({ type: LOGOUT_SUCCESS });
       history.push('/')
 };
-
-
 
 //FETCH ALL RECIPES
 export const fetchRecipes = () => dispatch => {
@@ -153,3 +164,27 @@ export const createNewRecipe = (
     .then(res => dispatch({ type: NEW_RECIPE_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: NEW_RECIPE_FAILURE, payload: err }));
 };
+
+
+//Edit Recipe
+export const editRecipe = id => dispatch => {
+  dispatch({ type: START_EDIT_FETCHING });
+  axiosWithAuth()
+    .put(`https://bw4-chef-api.herokuapp.com/api/chefs/1/recipes/${id}`)
+    .then(res =>
+      dispatch({ type: EDIT_RECIPE_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: EDIT_RECIPE_FAILURE, payload: err}));
+}
+
+//Delete Recipe
+export const deleteRecipe = id => dispatch => {
+  dispatch({ type: START_DELETE_FETCHING });
+  axiosWithAuth()
+    .delete(`https://bw4-chef-api.herokuapp.com/api/chefs/1/recipes/${id}`)
+    .then(res =>
+      dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data }))
+    .catch(err => dispatch({ type: DELETE_RECIPE_FAILURE, payload: err}));
+}
+
+
+

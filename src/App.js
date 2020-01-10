@@ -9,6 +9,7 @@ import NewRecipe from './components/NewRecipe';
 import EditRecipe from './components/EditRecipe';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import Portfolio from './components/Portfolio';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/login" component={Login} />
       <Route path="/newrecipe" component={NewRecipe} />
       <Route path="/editrecipe" component={EditRecipe} />
+      <Route path="/chefs/:id/recipes" component={Portfolio}/>
     </div>
   );
 }

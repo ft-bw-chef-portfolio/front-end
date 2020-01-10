@@ -2,9 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { logoutUser } from '../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router';
-
-
 
 function Nav() {
 

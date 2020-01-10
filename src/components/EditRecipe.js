@@ -1,16 +1,17 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "../styles/signup.scss";
+import { useDispatch, useSelector } from 'react-redux';
+import { editRecipe } from "../store/actions";
 
 const EditRecipe = () => {
-  const { handleSubmit, register, errors, watch } = useForm();
+  const dispatch = useDispatch();
+  const { handleSubmit, register, errors, watch, recipeid } = useForm();
 
   const onSubmit = id => {
     console.log(id);
     dispatch(editRecipe(id));
   };
-
-
 
   console.log(watch("example"));
 

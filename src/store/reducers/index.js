@@ -193,7 +193,7 @@ case NEW_RECIPE_FAILURE:
     isPosting: false,
     error: action.payload
   };
-  
+
 //Edit Recipe
 case START_EDIT_FETCHING:
 return{
@@ -214,18 +214,25 @@ return{
 //Delete Recipe
 case START_DELETE_FETCHING:
 return{
-  ...state,
+  ...state, 
+  errorDeleting: null, 
+  isDeleting: true
 
 };
+
 case DELETE_RECIPE_SUCCESS:
-return{
-  ...state,
+return { 
+  ...state, 
+  isDeleting: false, 
+  recipes: state.recipes.filter(recipe => recipe.id !== action.payload)
 
 };
-case DELETE_RECIPE_FAILURE:
-return{
-  ...state,
 
+case DELETE_RECIPE_FAILURE:
+return {
+  ...state, 
+  errorDeleting: action.payload, 
+  isDeleting: false
 };
 
 default:

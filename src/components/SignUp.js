@@ -35,8 +35,9 @@ const SignUp = () => {
 
   return (
     <div className="container">
-      <div className="box">
-        <h2>SignUp, Chef!</h2>
+      <div className="signupBox">
+        <h1>SignUp, Chef!</h1>
+
         <form onSubmit={handleSubmit}>
           <input
             onChange={handleChange}
@@ -93,6 +94,7 @@ const SignUp = () => {
             placeholder="Your phone number"
           />
           <button disabled={isSubmitting} type="submit">
+
             SignUp
           </button>
         </form>

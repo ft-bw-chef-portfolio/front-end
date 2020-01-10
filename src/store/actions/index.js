@@ -10,6 +10,7 @@ export const START_FETCHING = "START_FETCHING";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAILURE";
 
+
 //SINGLE RECIPES ACTIONS
 export const START_SINGLE_FETCHING = "START_SINGLE_FETCHING";
 export const FETCH_SINGLE_SUCCESS = "FETCH_SINGLE_SUCCESS";
@@ -185,6 +186,3 @@ export const deleteRecipe = id => dispatch => {
       dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: DELETE_RECIPE_FAILURE, payload: err}));
 }
-
-
-

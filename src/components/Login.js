@@ -58,6 +58,7 @@ if (isLoggedin) return <Redirect to="/"/>
                     name='username'
                     onChange={handleChanges}
                 />
+
                 <div className='password-content'>
                     <label className='password' htmlFor='password'>Password: </label>
                 </div>

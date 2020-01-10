@@ -6,21 +6,20 @@ $userimg: '../images/userimg.png';
     .title{
         margin-left: -16%;
         width: 15%;
-
     }
     .nav{
         margin-left: -16%;
         // margin-top: 7.8rem;
-        padding-top: 5rem;
-        height: 90%;
+        // padding-top: 5rem;
+        height: 100%;
         width: 15%;
         display: flex;
         flex-direction: column;
         border: 1px solid orange;
+        border-bottom: none;
         position: absolute;
         background-color: white;
             a{
-            margin: 2% 0;
             width: 25%;
             border-bottom: 1px solid gold;
             padding: 15% 0%;
@@ -32,6 +31,7 @@ $userimg: '../images/userimg.png';
                 color: gold;
             }
             img{
+                padding-bottom: 5%;
                 width: 15%;
                 display: flex;
                 margin: 0 auto;

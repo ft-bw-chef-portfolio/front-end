@@ -9,7 +9,7 @@ function RecipeCard({ recipe, error, recipeid }) {
   const {isLoggedin} = useSelector((state) => state);
 
  const removeRecipe = id =>{
-   console.log(recipeid);
+   console.log("in recipecard", recipeid);
     // preventDefault();
     dispatch(deleteRecipe(id));
  }
@@ -27,7 +27,7 @@ function RecipeCard({ recipe, error, recipeid }) {
 
       {isLoggedin && 
       <div>
-        <Link to="/editrecipe"><button>Edit</button></Link>
+        <Link to="/editrecipe" recipe={recipe} recipeid={recipe.id}><button>Edit</button></Link>
         <button onClick={() => removeRecipe(recipeid)}>Delete</button>
       </div>}
 

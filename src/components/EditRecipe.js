@@ -1,56 +1,97 @@
-import React from "react";
+import React, { useState} from "react";
 import { useForm } from "react-hook-form";
 import "../styles/signup.scss";
+import { useDispatch, useSelector } from 'react-redux';
+import { editRecipe } from "../store/actions";
 
 const EditRecipe = () => {
-  const { handleSubmit, register, errors, watch } = useForm();
+  const dispatch = useDispatch();
+  const { handleSubmit, register, errors, watch, recipeid } = useForm();
 
-  const onSubmit = id => {
+  const [ingredients, setIngredients] = useState({});
+
+  const [instructions, setInstructions] = useState({
+    position: 1
+  });
+
+  const [recipe, setRecipe] = useState({
+    title: "",
+    image: "",
+    meal_type_id: "",
+    ingredients: ingredients,
+    instructions: instructions
+  });
+
+  const handleChanges = e => {
+    setRecipe({
+      ...recipe,
+      [e.target.name]: e.target.value
+    });
+    // console.log(e.target);
+  };
+
+  const handleEditSubmit = id => {
     console.log(id);
     dispatch(editRecipe(id));
   };
 
+  const handleEditIngredients = e => {
+    setIngredients({
+      ...ingredients,
+      [e.target.name]: e.target.value
+    });
+  };
 
+  const handleEditInstructions = e => {
+    setInstructions({
+      ...instructions,
+      [e.target.name]: e.target.value
+    });
+  };
 
-  console.log(watch("example"));
+  // console.log(watch("example"));
 
   return (
     <div className="container">
       <div className="boxedit">
-        <form onSubmit={handleSubmit(recipeid)}>
-          <h2> Edit Recipe </h2>
+        <form onSubmit={handleEditSubmit}>
+          <h1> New Recipe</h1>
           <input
             name="title"
+            className="title"
             placeholder="Recipe Title"
             type="text"
-            ref={register}
+            onChange={handleChanges}
           />
-          {errors.title && <span>Required!</span>}
-
-          <div className="image">
-            {/* <img src="/images/placeholder.jpg" alt="Edit" /> */}
-          </div>
-
           <input
-            name="type"
+            name="image"
+            className="image"
+            placeholder="URL of image"
+            type="text"
+            onChange={handleChanges}
+          />
+          <input
+            name="meal_type_id"
+            className="username"
             placeholder="Recipe Type"
             type="text"
-            ref={register}
+            onChange={handleChanges}
           />
-
-          <textarea
-            name="ingredients"
+          <input
+            name="name"
+            className="ingredients"
             placeholder="Ingredients"
             type="text"
-            ref={register}
+            onChange={handleEditIngredients}
           />
           <textarea
-            name="steps"
-            placeholder="Recipe Steps"
+            name="description"
+            className="instructions"
+            placeholder="Instructions"
             type="text"
-            ref={register}
+            onChange={handleEditInstructions}
           />
-          <button type="submit">Update Recipe</button>
+          <button type="submit">Submit New Recipe</button>
         </form>
       </div>
     </div>

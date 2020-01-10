@@ -34,6 +34,5 @@ const mapStateToProps = state => {
     isFetching: state.isFetching,
     error: state.error
   };
-};
-
+}
 export default connect(mapStateToProps, { fetchRecipes })(HomePage);

@@ -183,6 +183,7 @@ export const deleteRecipe = id => dispatch => {
   axiosWithAuth()
     .delete(`https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/chefs/1/recipes/${id}`)
     .then(res =>
+      console.log(res),
       dispatch({ type: DELETE_RECIPE_SUCCESS, payload: id }))
     .catch(err => dispatch({ type: DELETE_RECIPE_FAILURE, payload: err}));
 }

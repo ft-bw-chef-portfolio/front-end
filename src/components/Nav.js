@@ -34,8 +34,12 @@ const {isLoggedin} = useSelector((state) => state);
       
       {isLoggedin && <span>
       <Link onClick={signOut}><img className='logout' src={Logouticon} alt='logout' />Signout</Link>
+      <div>
+      </div>
       <Link to="/newrecipe"><img className='addrecipe' src={Addicon} alt='add recipe' />Add Recipe</Link>
-      <Link to="/chefuser">My Portfolio</Link>
+      <div>
+      </div>
+      <Link to="/chefuser"><img className='userimg' src={Loginicon} alt='login' />My Portfolio</Link>
       </span>}
     </div>
   );

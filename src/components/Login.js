@@ -1,25 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useFormValidation from '../Hooks/useFormValidation';
-import validateAuth from '../Hooks/validateAuth';
-import '../styles/styles.scss';
-
-
-const initialState = {
-    email: '',
-    password: ''
-};
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../store/actions';
+import { Redirect } from 'react-router';
 
 const Login = () => {
-    const {
-        handleChange,
-        values,
-        handleSubmit,
-        errors,
-        handleBlur,
-        isSubmitting
-      } = useFormValidation(initialState, validateAuth);
-    //   console.log(values)
+    const dispatch = useDispatch();
+    //dispatch can be used to pull actions instead of connect
+    const {isLoggedin, isLogging} = useSelector((state) => state);
+    //useSelector can be used to pull state from reducers
+
+    const [info, setInfo] = useState({
+        username: "",
+        password: ""
+    });
+
+    if (isLogging) {
+        return <h2>Logging In...</h2>;
+      }
+
+    const handleChanges = e => {
+        setInfo({
+            ...info,
+            [e.target.name]: e.target.value
+        });
+        console.log(e.target)
+    }
+
+    const submitForm = e => {
+        e.preventDefault();
+        dispatch(loginUser(info))
+        console.log(info)
+    }
+
+if (isLoggedin) return <Redirect to="/"/>
 
     // function myfunction() {
     //     var x = document.getElementById('password');
@@ -31,23 +45,20 @@ const Login = () => {
     // }
     return (
         <div className='login-container'>
-        <form onSubmit={handleSubmit} className='form'>
+        <form className='form' onSubmit={submitForm}>
             <h1 className='login-header'>Log in!</h1>
             <div className='form-content'>
-                <div className='email-content'>
-                    <label className='email' htmlFor='email'>Email: </label>
+                <div className='username-content'>
+                    <label className='username' htmlFor='username'>username: </label>
                 </div>
-                
                 <input
-                    id='email'
-                    type='email'
-                    placeholder='Enter email'
-                    name='email'
-                    onChange={handleChange}
-                    value={values.email}
-                    onBlur={handleBlur}
+                    id='username'
+                    type='text'
+                    placeholder='Enter username'
+                    name='username'
+                    onChange={handleChanges}
                 />
-                {errors.email}
+
                 <div className='password-content'>
                     <label className='password' htmlFor='password'>Password: </label>
                 </div>
@@ -56,17 +67,15 @@ const Login = () => {
                     type='password'
                     placeholder='Enter password'
                     name='password'
-                    onChange={handleChange}
-                    value={values.password}
-                    onBlur={handleBlur}
+                    onChange={handleChanges}
                 />
-                {errors.password}
+            
             </div>
-            <button disabled={isSubmitting} type='submit'>Submit</button>
+            <button type='submit'>Submit</button>
             <Link className='link-signup' to='/signup'>Don't have an account? Sign-up here!</Link>
         </form>
         </div>
-    );
-};
+    )
+}
 
-export default Login;
+  export default Login;

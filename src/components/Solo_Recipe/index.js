@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { connect } from "react-redux";
-
+import { BrowserRouter as Router, Link} from "react-router-dom";
 import { fetchSingleRecipe} from "../../store/actions";
 
 function Recipe({ fetchSingleRecipe, recipe, error, isFetching }) {
@@ -22,19 +22,26 @@ function Recipe({ fetchSingleRecipe, recipe, error, isFetching }) {
   return (
     <div className="single-recipe">
       {error && <p>{error}</p>}
-      <h1>Here is a recipe</h1>
+      
       <h1>{recipe.title}</h1>
       <img src={recipe.image} alt="recipe pic" width="200px" height="200px" />
-      {/* <h3> Meal Type: {recipe.meal_type && recipe.meal_type.name} Will re-add when Backend adds chef info</h3>  */}
-      {/* <h3>Chef: {recipe.chef && recipe.chef.name}</h3>  Will re-add when Backend adds chef info*/}
+      <h3> Meal Type: {recipe.meal_type} </h3> 
+
+      <Link to={`/chefs/${recipe.chef && recipe.chef.id}/recipes`}>
+        <h3>Chef: {recipe.chef && recipe.chef.name}</h3>
+      </Link>
+      
+
       <p>Ingredients:</p>
-      <ol>
+      <ul>
         {recipe.ingredients && recipe.ingredients.map(item => (<li>{item}</li>))}
-      </ol>
+      </ul>
+
       <p>Instructions: </p>
       <ol>
       {recipe.instructions && recipe.instructions.map(item => (<li>{item}</li>))}
       </ol>
+
     </div>
   );
 }
@@ -48,7 +55,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { fetchSingleRecipe })(Recipe);
-
-// const currentRecipe = props.recipes.find(curr => {
-//   return Number(curr.id) === Number(props.match.params.id);
-// })

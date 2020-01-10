@@ -11,10 +11,16 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Portfolio from './components/Portfolio';
 
+import Nav from "./components/Nav"
+import HomePage from "./components/HomePage";
+import Recipe from "./components/Solo_Recipe";
+import SignUp from './components/SignUp';
+import Login from "./components/Login";
+
 function App() {
   return (
     <div className="App">
-      <h1>Chef Portfolio</h1>
+      <h1 className='title'>Chef Portfolio</h1>
       <Nav />
       <Route exact path="/" component={HomePage} />
       <Route exact path="/recipes/:id" component={Recipe} />

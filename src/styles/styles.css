@@ -131,7 +131,7 @@ p {
 }
 
 .login-container .form .form-content .password-content {
-  margin-left: -88%;
+  margin-left: -95%;
 }
 
 .login-container .form .form-content #password {
@@ -160,5 +160,65 @@ p {
 .login-container .form .link-signup:hover {
   color: orange;
   text-decoration: none;
+}
+
+.App {
+  margin: 2rem 0rem 0rem 20rem;
+}
+
+.App .title {
+  margin-left: -16%;
+  width: 15%;
+}
+
+.App .nav {
+  margin-left: -16%;
+  height: 100%;
+  width: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid orange;
+  border-bottom: none;
+  position: absolute;
+  background-color: white;
+}
+
+.App .nav a {
+  width: 25%;
+  border-bottom: 1px solid gold;
+  padding: 15% 0%;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+}
+
+.App .nav a:hover {
+  background-color: orange;
+  color: gold;
+}
+
+.App .nav a img {
+  padding-bottom: 5%;
+  width: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+.single-recipe h1 {
+  text-decoration: underline;
+  -webkit-text-decoration-color: sienna;
+          text-decoration-color: sienna;
+  margin-top: -3%;
+}
+
+.single-recipe img {
+  margin: 2% auto 5% auto;
 }
 /*# sourceMappingURL=styles.css.map */

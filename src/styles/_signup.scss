@@ -1,0 +1,51 @@
+$bgboxcolor: white;
+$bgimage: '../images/signupbg.jpg';
+
+h1 {
+  color: red;
+}
+.container {
+  background-image: url($bgimage);
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signupBox {
+  background-color: $bgboxcolor;
+  width: 30%;
+  height: 70vh;
+  border-radius: 20px;
+  border: 5px solid gold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  color: black;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid gold;
+}
+
+.error-input {
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+.error-text {
+  margin: 0.25em 0 0 0;
+  padding: 0;
+  color: red;
+  font-style: bold;
+  font-size: 1.2rem;
+}

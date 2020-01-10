@@ -6,7 +6,7 @@ import { fetchChefInfo, fetchChefsRecipes} from "../store/actions";
 import RecipeCard from "./RecipeCard";
 import ChefInfoCard from './ChefInfoCard';
 
-const Portfolio = ({ fetchChefInfo, fetchChefsRecipes, chefinfo, chefrecipes }) => {
+const Portfolio = ({ fetchChefInfo, fetchChefsRecipes, chefinfo, chefrecipes, isLoggedin }) => {
 
     const { id } = useParams();
 
@@ -19,9 +19,12 @@ const Portfolio = ({ fetchChefInfo, fetchChefsRecipes, chefinfo, chefrecipes }) 
 
     return(
         <div>
+            {isLoggedin && 
+            <h1>My Chef Portfolio: </h1>}
+
             <h1>This Chef's Portfolio: </h1>
            
-            <p>{chefinfo && chefinfo.filter(chefinfo => {
+            {/* <p>{chefinfo && chefinfo.filter(chefinfo => {
                 
                 console.log("chefinfoid", chefinfo.id);
                 console.log("id", id);
@@ -31,7 +34,7 @@ const Portfolio = ({ fetchChefInfo, fetchChefsRecipes, chefinfo, chefrecipes }) 
                 return(
                 <ChefInfoCard chefinfo={chefinfo}/>)
                     }}
-                )}</p>
+                )}</p> */}
 
             <p>{chefrecipes && chefrecipes.map(recipe => (
                 <RecipeCard recipe={recipe} />
@@ -44,7 +47,8 @@ const mapStateToProps = state => {
         chefrecipes: state.chefrecipes,
       chefinfo: state.chefinfo,
       isFetching: state.isFetching,
-      error: state.error
+      error: state.error,
+      isLoggedin: state.isLoggedin
     };
   };
   

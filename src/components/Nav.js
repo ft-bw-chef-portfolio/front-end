@@ -8,7 +8,6 @@ import Signupicon from '../images/signimg.png';
 import Logouticon from '../images/logout.png';
 import Addicon from '../images/plus.png';
   
-  
 import { logoutUser } from '../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -21,11 +20,12 @@ const {isLoggedin} = useSelector((state) => state);
         e.preventDefault();
         dispatch(logoutUser())
     }
-
+    
   return (
    <div className='nav'>
       <Link to="/"><img src={Homeicon} alt='home' />Home</Link>
       <div>
+    
       </div>
       <Link to="/login"><img className='userimg' src={Loginicon} alt='login' />Chef Login</Link>
       <div>

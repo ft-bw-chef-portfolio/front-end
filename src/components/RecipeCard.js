@@ -4,14 +4,16 @@ import Recipe from "./Solo_Recipe";
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteRecipe } from '../store/actions';
 
-function RecipeCard({ recipe, error }) {
+function RecipeCard({ recipe, error, recipeid }) {
   const dispatch = useDispatch();
   const {isLoggedin} = useSelector((state) => state);
 
- const removeRecipe = e =>{
-    e.preventDefault();
-    dispatch(deleteRecipe());
+ const removeRecipe = id =>{
+   console.log(recipeid);
+    // preventDefault();
+    dispatch(deleteRecipe(id));
  }
+
   
   return (
     <div>
@@ -26,7 +28,7 @@ function RecipeCard({ recipe, error }) {
       {isLoggedin && 
       <div>
         <Link to="/editrecipe"><button>Edit</button></Link>
-        <button onClick={removeRecipe}>Delete</button>
+        <button onClick={() => removeRecipe(recipeid)}>Delete</button>
       </div>}
 
     </div>

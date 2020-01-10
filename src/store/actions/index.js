@@ -60,7 +60,7 @@ export const DELETE_RECIPE_FAILURE = "DELETE_RECIPE_FAILURE";
 export const loginUser = info => dispatch => {
   dispatch({ type: START_LOGIN });
   axios
-    .post("https://bw4-chef-api.herokuapp.com/api/auth/login", {
+    .post("https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/auth/login", {
       username: info.username,
       password: info.password
     })
@@ -76,7 +76,7 @@ export const loginUser = info => dispatch => {
 export const registerUser = initialState => dispatch => {
   dispatch({ type: START_REGISTER });
   axios
-    .post("https://bw4-chef-api.herokuapp.com/api/auth/register", {
+    .post("https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/auth/register", {
       username: initialState.username,
       name: initialState.name,
       email: initialState.email,
@@ -104,7 +104,7 @@ export const logoutUser = () => dispatch => {
 export const fetchRecipes = () => dispatch => {
   dispatch({ type: START_FETCHING });
   axios
-    .get(`https://bw4-chef-api.herokuapp.com/api/recipes`)
+    .get(`https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/recipes`)
     .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
     .then(res => console.log("in fetch", res.data))
     .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
@@ -114,7 +114,7 @@ export const fetchRecipes = () => dispatch => {
 export const fetchSingleRecipe = id => dispatch => {
   dispatch({ type: START_SINGLE_FETCHING });
   axios
-    .get(`https://bw4-chef-api.herokuapp.com/api/recipes/${id}`)
+    .get(`https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/recipes/${id}`)
     .then(res => dispatch({ type: FETCH_SINGLE_SUCCESS, payload: res.data }))
     .then(res => console.log("single rec", res))
     .catch(err =>
@@ -126,7 +126,7 @@ export const fetchSingleRecipe = id => dispatch => {
 export const fetchChefInfo = () => dispatch => {
   dispatch({ type: START_CHEFINFO_FETCHING });
   axios
-    .get(`https://bw4-chef-api.herokuapp.com/api/chefs`)
+    .get(`https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/chefs`)
     .then(res => dispatch({ type: FETCH_CHEFINFO_SUCCESS, payload: res.data }))
     .catch(err =>
       dispatch({ type: FETCH_CHEFINFO_FAILURE, payload: err.response })
@@ -137,7 +137,7 @@ export const fetchChefInfo = () => dispatch => {
 export const fetchChefsRecipes = id => dispatch => {
   dispatch({ type: START_CHEF_RECIPES_FETCHING });
   axios
-    .get(`http://bw4-chef-api.herokuapp.com/api/chefs/${id}/recipes/`)
+    .get(`https://cors-anywhere.herokuapp.com/http://bw4-chef-api.herokuapp.com/api/chefs/${id}/recipes/`)
     .then(res =>
       dispatch({ type: FETCH_CHEF_RECIPES_SUCCESS, payload: res.data })
     )
@@ -161,7 +161,7 @@ export const createNewRecipe = (
   };
   dispatch({ type: NEW_RECIPE_POST, payload: newRecipe });
   axiosWithAuth()
-    .post(`https://bw4-chef-api.herokuapp.com/api/recipes/`, newRecipe)
+    .post(`https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/recipes/`, newRecipe)
     .then(res => dispatch({ type: NEW_RECIPE_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: NEW_RECIPE_FAILURE, payload: err }));
 };
@@ -171,7 +171,7 @@ export const createNewRecipe = (
 export const editRecipe = id => dispatch => {
   dispatch({ type: START_EDIT_FETCHING });
   axiosWithAuth()
-    .put(`https://bw4-chef-api.herokuapp.com/api/chefs/1/recipes/${id}`)
+    .put(`https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/chefs/1/recipes/${id}`)
     .then(res =>
       dispatch({ type: EDIT_RECIPE_SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: EDIT_RECIPE_FAILURE, payload: err}));
@@ -181,8 +181,9 @@ export const editRecipe = id => dispatch => {
 export const deleteRecipe = id => dispatch => {
   dispatch({ type: START_DELETE_FETCHING });
   axiosWithAuth()
-    .delete(`https://bw4-chef-api.herokuapp.com/api/chefs/1/recipes/${id}`)
+    .delete(`https://cors-anywhere.herokuapp.com/https://bw4-chef-api.herokuapp.com/api/chefs/1/recipes/${id}`)
     .then(res =>
-      dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data }))
+      console.log(res),
+      dispatch({ type: DELETE_RECIPE_SUCCESS, payload: id }))
     .catch(err => dispatch({ type: DELETE_RECIPE_FAILURE, payload: err}));
 }

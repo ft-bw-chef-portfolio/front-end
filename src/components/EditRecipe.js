@@ -5,16 +5,19 @@ import "../styles/signup.scss";
 const EditRecipe = () => {
   const { handleSubmit, register, errors, watch } = useForm();
 
-  const onSubmit = values => {
-    console.log(values);
+  const onSubmit = id => {
+    console.log(id);
+    dispatch(editRecipe(id));
   };
+
+
 
   console.log(watch("example"));
 
   return (
     <div className="container">
       <div className="boxedit">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(recipeid)}>
           <h2> Edit Recipe </h2>
           <input
             name="title"
@@ -23,8 +26,6 @@ const EditRecipe = () => {
             ref={register}
           />
           {errors.title && <span>Required!</span>}
-
-          <a href="/">Edit</a>
 
           <div className="image">
             {/* <img src="/images/placeholder.jpg" alt="Edit" /> */}

@@ -16,7 +16,7 @@ function RecipeCard({ recipe, error, recipeid }) {
 
   
   return (
-    <div>
+    <div className="recipe-cards">
       <Link to={`/recipes/${recipe.id}`}> 
         <div className="single-recipe">
           {error && <p>{error}</p>}

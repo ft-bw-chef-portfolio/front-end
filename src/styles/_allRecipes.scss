@@ -1,0 +1,34 @@
+.recipe-list{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 75%;
+    height: auto;
+
+    .recipe-cards{
+        width: 25%;
+    }
+
+}
+
+.chefs_portfolio{
+    h1{
+        width:75%;
+    }
+
+ .chefs_recipes{
+    h1{
+        width:100%
+    }
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 75%;
+    height: auto;
+
+    .recipe-cards{
+        width: 25%;
+    }
+    
+}   
+}

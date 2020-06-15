@@ -18,11 +18,12 @@ const Portfolio = ({ fetchChefInfo, fetchChefsRecipes, chefinfo, chefrecipes, is
       }, [id]);
 
     return(
-        <div>
+        <div className="chefs_portfolio">
             {isLoggedin && 
             <h1>My Chef Portfolio: </h1>}
             
             <h1>This Chef's Portfolio: </h1>
+            <div className="chefs_recipes">
            
             {/* <p>{chefinfo && chefinfo.filter(chefinfo => {
                 
@@ -36,9 +37,10 @@ const Portfolio = ({ fetchChefInfo, fetchChefsRecipes, chefinfo, chefrecipes, is
                     }}
                 )}</p> */}
 
-            <p>{chefrecipes && chefrecipes.map(recipe => (
+           {chefrecipes && chefrecipes.map(recipe => (
                 <RecipeCard recipeid={recipe.id} recipe={recipe} />
-                ))}</p>
+                ))}
+            </div>
         </div>
     )
 };

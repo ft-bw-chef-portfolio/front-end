@@ -12,9 +12,11 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Portfolio from './components/Portfolio';
 
+
 function App() {
   return (
     <div className="App">
+
       <h1 className='title'>Chef Portfolio</h1>
       <Nav />
       <Route exact path="/" component={HomePage} />

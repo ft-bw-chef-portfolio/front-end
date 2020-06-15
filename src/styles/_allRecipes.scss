@@ -1,0 +1,66 @@
+.recipe-list{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 75%;
+    height: auto;
+
+    .recipe-cards{
+        width: 25%;
+
+        .loggeding-Buttons{
+            display: flex;
+            justify-content: space-evenly;
+
+            a{
+                text-decoration: none;
+                color:white;
+            }
+
+            button{
+                width: 28%;
+                font-size: 1.2rem;
+                padding: .5rem;
+                }
+        }
+ 
+    }
+
+}
+
+.chefs_portfolio{
+    h1{
+        width:75%;
+    }
+
+ .chefs_recipes{
+    h1{
+        width:100%
+    }
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 75%;
+    height: auto;
+
+    .recipe-cards{
+        width: 25%;
+        .loggeding-Buttons{
+            display: flex;
+            justify-content: space-evenly;
+
+            a{
+                text-decoration: none;
+                color:white;
+            }
+
+            button{
+                width: 28%;
+                font-size: 1.2rem;
+                padding: .5rem;
+                }
+        }
+    }
+    
+}   
+}

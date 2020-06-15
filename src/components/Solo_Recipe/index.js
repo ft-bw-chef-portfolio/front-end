@@ -20,7 +20,7 @@ function Recipe({ fetchSingleRecipe, recipe, error, isFetching }) {
   //console.log("Is this displaying???");
 
   return (
-    <div className="single-recipe">
+    <div className="single-recipes">
       {error && <p>{error}</p>}
       
       <h1>{recipe.title}</h1>

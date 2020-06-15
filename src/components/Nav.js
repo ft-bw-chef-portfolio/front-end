@@ -24,23 +24,21 @@ const {isLoggedin} = useSelector((state) => state);
   return (
    <div className='nav'>
       <Link to="/"><img src={Homeicon} alt='home' />Home</Link>
-      <div>
-    
-      </div>
+
       <Link to="/login"><img className='userimg' src={Loginicon} alt='login' />Chef Login</Link>
-      <div>
-      </div>
+
       <Link to="/signup"><img className='loginimg' src={Signupicon} alt='signup' />Chef Signup</Link> 
       
-      {isLoggedin && <span>
+      {isLoggedin && 
       <Link onClick={signOut}><img className='logout' src={Logouticon} alt='logout' />Signout</Link>
-      <div>
-      </div>
+      }
+      {isLoggedin && 
       <Link to="/newrecipe"><img className='addrecipe' src={Addicon} alt='add recipe' />Add Recipe</Link>
-      <div>
-      </div>
+      }
+      {isLoggedin && 
       <Link to="/chefuser"><img className='userimg' src={Loginicon} alt='login' />My Portfolio</Link>
-      </span>}
+      }
+      
     </div>
   );
 }

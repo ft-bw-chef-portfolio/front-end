@@ -11,12 +11,11 @@ $userimg: '../images/userimg.png';
         margin-left: -16%;
         // margin-top: 7.8rem;
         // padding-top: 5rem;
-        height: 100%;
+        height: auto;
         width: 15%;
         display: flex;
         flex-direction: column;
         border: 1px solid orange;
-        border-bottom: none;
         position: absolute;
         background-color: white;
             a{
@@ -36,8 +35,9 @@ $userimg: '../images/userimg.png';
                 display: flex;
                 margin: 0 auto;
             }
+
     }
 
    
-}
+    }
 }
